@@ -1,0 +1,56 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('server', 'ServerController@index');
+Route::post('server', 'ServerController@store');
+Route::get('server/create', 'ServerController@create');
+Route::get('server/{id}', 'ServerController@show');
+Route::patch('server/{id}', 'ServerController@update');
+Route::get('server/{id}/edit', 'ServerController@edit');
+Route::delete('server/{id}/destroy', 'ServerController@destroy');
+
+Route::get('pool', 'PoolController@index');
+Route::post('pool', 'PoolController@store');
+Route::get('pool/create', 'PoolController@create');
+Route::get('pool/{id}', 'PoolController@show');
+Route::patch('pool/{id}', 'PoolController@update');
+Route::get('pool/{id}/edit', 'PoolController@edit');
+Route::delete('pool/{id}/destroy', 'PoolController@destroy');
+
+Route::get('crypto', 'CryptoController@index');
+Route::post('crypto', 'CryptoController@store');
+Route::get('crypto/create', 'CryptoController@create');
+Route::get('crypto/{id}', 'CryptoController@show');
+Route::patch('crypto/{id}', 'CryptoController@update');
+Route::get('crypto/{id}/edit', 'CryptoController@edit');
+Route::delete('crypto/{id}/destroy', 'CryptoController@destroy');
+
+Route::get('port', 'PortController@index');
+Route::post('port', 'PortController@store');
+Route::get('port/create', 'PortController@create');
+Route::get('port/{id}', 'PortController@show');
+Route::patch('port/{id}', 'PortController@update');
+Route::get('port/{id}/edit', 'PortController@edit');
+Route::delete('port/{id}/destroy', 'PortController@destroy');
+
+Route::get('address', 'AddressController@index');
+Route::post('address', 'AddressController@store');
+Route::get('address/create', 'AddressController@create');
+Route::get('address/{id}', 'AddressController@show');
+Route::patch('address/{id}', 'AddressController@update');
+Route::get('address/{id}/edit', 'AddressController@edit');
+Route::delete('address/{id}/destroy', 'AddressController@destroy');

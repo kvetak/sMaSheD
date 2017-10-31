@@ -6,25 +6,39 @@
     </div>
 
     @if ( isset($isChanged) )
-        <div class="alert alert-success">Server successfully created!</div>
+        <div class="alert alert-success">Server saved successfully!</div>
+    @elseif ( isset($isDeleted) )
+        <div class="alert alert-success">Server deleted successfully!</div>
     @endif
-    <h2>Create</h2>
-    <p>Add server entry:</p>
 
-    @include('servers.update', array( 'url' => url('server'),
-                                       'method' => 'POST',
-                                       'f_fqdn' => old('fqdn'),
-                                       'pools' => $pools,
-                                       'pool' => old('pool_id'),
-                                       'buttext' => 'Create',
-                                       'errs' => $errors
-                                       ))
+    @if ( Auth::check() )
+        <h2>Create</h2>
+        <p>Add server entry:</p>
 
-    <div class="clearfix"></div>
-    <hr/>
+        @include('servers.update', array( 'url' => url('server'),
+                                           'method' => 'POST',
+                                           'f_fqdn' => old('fqdn'),
+                                           'pools' => $pools,
+                                           'pool' => old('pool_id'),
+                                           'buttext' => 'Create',
+                                           'errs' => $errors
+                                           ))
+
+        <div class="clearfix"></div>
+        <hr/>
+    @else
+        <div class="alert alert-warning">
+            <span class="glyphicon glyphicon-lock"></span>  Some features are unavailable for unauthenticated users
+        </div>
+    @endif
+
     <h2>List</h2>
     <p>All currently recognized pools in system.</p>
 
-    @include('servers.list', array( 'servers' => $servers) )
+    @if ( Auth::check() )
+        @include('servers.authlist', array( 'servers' => $servers ) )
+    @else
+        @include('servers.guestlist', array( 'servers' => $servers ) )
+    @endif
 
 @endsection

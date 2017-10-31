@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 
 class PortController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -32,6 +37,7 @@ class PortController extends Controller
     {
         $servers = Server::all();
         $cryptos = Crypto::hydrate( DB::table('cryptos')->orderBy('name')->get()->toArray() );
+
         return view('ports.create', compact('cryptos', 'servers'));
     }
 
@@ -52,15 +58,17 @@ class PortController extends Controller
         $port = new Port;
 
         $isChanged = false;
+
         if ( isset($port)) {
             $this->assignFromRequest($request, $port);
-
             $port->save();
             $isChanged = true;
         }
 
-        //return view('ports.edit', compact('port','isChanged'));
-        return back();
+        $ports = Port::all();
+        $servers = Server::all();
+        $cryptos = Crypto::hydrate( DB::table('cryptos')->orderBy('name')->get()->toArray() );
+        return view('ports.index', compact('ports','servers', 'cryptos', 'isChanged'));
     }
 
     /**
@@ -106,7 +114,6 @@ class PortController extends Controller
 
         $port = Port::find($id);
 
-        $isChanged = false;
         if ( isset($port)) {
             $this->assignFromRequest($request, $port);
 
@@ -128,7 +135,13 @@ class PortController extends Controller
     public function destroy($id)
     {
         Port::destroy($id);
-        return back();
+
+        $isDeleted = true;
+
+        $ports = Port::all();
+        $servers = Server::all();
+        $cryptos = Crypto::hydrate( DB::table('cryptos')->orderBy('name')->get()->toArray() );
+        return view('ports.index', compact('ports','servers', 'cryptos', 'isDeleted'));
     }
 
     /**

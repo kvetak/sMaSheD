@@ -41,7 +41,7 @@
         <div class="clearfix"></div>
         <p>Port entries:</p>
 
-        @include('ports.list', array( 'ports' => $server->ports) )
+        @include('ports.authlist', array( 'ports' => $server->ports) )
 
         <div class="clearfix"></div>
         <hr/>
@@ -60,7 +60,7 @@
         <div class="clearfix"></div>
         <p>Address entries:</p>
 
-        @include('addresses.list', array( 'addresses' => $server->addresses) )
+        @include('addresses.authlist', array( 'addresses' => $server->addresses) )
 
     @endif
 

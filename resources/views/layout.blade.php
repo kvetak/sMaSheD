@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Brno University of Technology">
 
-    <title>sMaSheD - Mining Server Detector of Cryptocurrency Pools</title>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'sMaSheD') }}</title>
 
     <link type="text/css" rel="stylesheet" href="{{ mix('/css/app.css') }}" >
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
@@ -20,7 +23,8 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
--->
+
+    -->
 
     @yield('head')
 
@@ -36,7 +40,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="">sMaSheD</a>
+                <a class="navbar-brand" href="{{ url('/') }}">sMaSheD</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -46,13 +50,34 @@
                     <li {{ (Request::is('port') ? 'class=active' : '') }}><a href="{{ url('port')}}">Ports</a></li>
                     <li {{ (Request::is('address') ? 'class=active' : '') }}><a href="{{ url('address')}}">Addresses</a></li>
                 </ul>
+                <p class="navbar-text">|</p>
+                <ul class="nav navbar-nav">
+                    <li {{ (Request::is('dashboard') ? 'class=active' : '') }}><a href="{{ url('dashboard')}}">Dashboard</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (Auth::guest())
+                        <!-- <li><a href="route('register')"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
+                        <li><a href="{{ url('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    @else
+                        <li>
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();">
+                               <span class="glyphicon glyphicon-log-out"></span> Logout
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    @endif
+                </ul>
             </div><!--/.nav-collapse -->
         </div>
     </nav>
 
     @yield('message')
 
-<div class="container" style="margin-top: 55px;">
+<div class="container" style="margin-top: 60px;">
     <div class="clearfix"></div>
     @yield('content')
     <div class="clearfix"></div>

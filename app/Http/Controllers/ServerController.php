@@ -13,6 +13,11 @@ use Illuminate\Http\Request;
 
 class ServerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -72,7 +77,7 @@ class ServerController extends Controller
             $port->save();
         }
 
-        $servers = Server::all();
+        $servers = Server::all()->reverse();
         $isChanged = true;
 
         $pools = Pool::hydrate( DB::table('pools')->orderBy('name')->get()->toArray() );
@@ -123,7 +128,6 @@ class ServerController extends Controller
 
         $server = Server::find($id);
 
-        $isChanged = false;
         if (isset($server)) {
             $this->assignFromRequest($request, $server);
 
@@ -147,7 +151,12 @@ class ServerController extends Controller
     public function destroy($id)
     {
         Server::destroy($id);
-        return back();
+
+        $isDeleted = ture;
+
+        $servers = Server::all()->reverse();
+        $pools = Pool::hydrate( DB::table('pools')->orderBy('name')->get()->toArray() );
+        return view('servers.index', compact('servers','pools', 'isDeleted'));
     }
 
     /**

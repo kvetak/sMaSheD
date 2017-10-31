@@ -6,55 +6,39 @@
     </div>
 
     @if ( isset($isChanged) )
-        <div class="alert alert-success">Cryptocurrency successfully created!</div>
+        <div class="alert alert-success">Crypto saved successfully!</div>
+    @elseif ( isset($isDeleted) )
+        <div class="alert alert-success">Crypto deleted successfully!</div>
     @endif
-    <h2>Create</h2>
-    <p>Add cryptocurrency entry:</p>
 
-    @include('cryptos.update', array( 'url' => url('crypto'),
-                                      'method' => 'POST',
-                                      'cr_abbr' => old('abbreviation'),
-                                      'cr_name' => old('name'),
-                                      'cr_url' => old('url'),
-                                      'buttext' => 'Create',
-                                      'errs' => $errors
-                                      ))
+    @if ( Auth::check() )
+        <h2>Create</h2>
+        <p>Add cryptocurrency entry:</p>
 
-    <div class="clearfix"></div>
-    <hr/>
+        @include('cryptos.update', array( 'url' => url('crypto'),
+                                          'method' => 'POST',
+                                          'cr_abbr' => old('abbreviation'),
+                                          'cr_name' => old('name'),
+                                          'cr_url' => old('url'),
+                                          'buttext' => 'Create',
+                                          'errs' => $errors
+                                          ))
+
+        <div class="clearfix"></div>
+        <hr/>
+    @else
+        <div class="alert alert-warning">
+            <span class="glyphicon glyphicon-lock"></span>  Some features are unavailable for unauthenticated users
+        </div>
+    @endif
+
     <h2>List</h2>
     <p>All currently recognized cryptocurrencies in system.</p>
 
-    <div class="col-md-12">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>Abbreviation</th>
-                <th>Name</th>
-                <th>URL</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-            </thead>
-            <tbody>
-                @foreach($cryptos as $crypto)
-                    <tr>
-                        <td class="col-md-1"><a href="{{ url('crypto', $crypto->id ) }}">{{ $crypto->id }}</a></td>
-                        <td class="col-md-1">{{ $crypto->abbreviation }}</td>
-                        <td class="col-md-3">{{ $crypto->name }}</td>
-                        <td class="col-md-5"><a href="{{ $crypto->url }}" target="_blank">{{ $crypto->url }}</a></td>
-                        <td class="col-md-1">
-                            <a class="btn btn-link" href="{{ url('crypto/' . $crypto->id . '/edit' ) }}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                        </td>
-                        <td class="col-md-1">
-                            @include('utils.delete', array( 'url' => url('crypto/' . $crypto->id . '/destroy'),
-                                                            'text' => '<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>'))
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
+    @if ( Auth::check() )
+        @include('cryptos.authlist', array( 'cryptos' => $cryptos ) )
+    @else
+        @include('cryptos.guestlist', array( 'cryptos' => $cryptos ) )
+    @endif
 
 @endsection

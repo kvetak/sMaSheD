@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class PoolController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -46,6 +51,7 @@ class PoolController extends Controller
         $pool->save();
 
         $pools = Pool::all();
+
         $isChanged = true;
 
         return view('pools.index', compact('pools','isChanged'));
@@ -92,7 +98,6 @@ class PoolController extends Controller
 
         $pool = Pool::find($id);
 
-        $isChanged = false;
         if ( isset($pool)) {
             $this->assignFromRequest($request, $pool);
 
@@ -112,7 +117,11 @@ class PoolController extends Controller
     public function destroy($id)
     {
         Pool::destroy($id);
-        return back();
+
+        $isDeleted = true;
+
+        $pools = Pool::all();
+        return view('pools.index', compact('pools', 'isDeleted'));
     }
 
     /**

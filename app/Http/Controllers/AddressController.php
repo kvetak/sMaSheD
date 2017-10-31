@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class AddressController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -46,16 +51,16 @@ class AddressController extends Controller
 
         $address = new Address();
 
-        $isChanged = false;
         if ( isset($address)) {
             $this->assignFromRequest($request, $address);
 
             $address->save();
-            $isChanged = true;
+            $isAdded = true;
         }
 
-        //return view('ports.edit', compact('port','isChanged'));
-        return back();
+        $addresses = Address::all();
+        $servers = Server::all();
+        return view('addresses.index', compact('addresses','servers', 'isAdded'));
     }
 
     /**
@@ -99,16 +104,15 @@ class AddressController extends Controller
 
         $address = Address::find($id);
 
-        $isChanged = false;
         if ( isset($address)) {
             $this->assignFromRequest($request, $address);
 
             $address->save();
-            $isChanged = true;
             $servers = Server::all();
+            $isChanged = true;
         }
 
-        return view('addresses.edit', compact('address','servers'));
+        return view('addresses.edit', compact('address','servers', 'isChanged'));
     }
 
     /**
@@ -120,7 +124,12 @@ class AddressController extends Controller
     public function destroy($id)
     {
         Address::destroy($id);
-        return back();
+
+        $isDeleted = true;
+
+        $addresses = Address::all();
+        $servers = Server::all();
+        return view('addresses.index', compact('addresses','servers', 'isDeleted'));
     }
 
     /**

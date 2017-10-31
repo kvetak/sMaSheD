@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'SearchController@index');
+Route::post('/', 'SearchController@query');
+
+Route::get('dashboard', 'DashboardController@index');
 
 Route::get('server', 'ServerController@index');
 Route::post('server', 'ServerController@store');
@@ -54,3 +55,16 @@ Route::get('address/{id}', 'AddressController@show');
 Route::patch('address/{id}', 'AddressController@update');
 Route::get('address/{id}/edit', 'AddressController@edit');
 Route::delete('address/{id}/destroy', 'AddressController@destroy');
+
+// Authentication Routes...
+$this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
+$this->post('login', 'Auth\LoginController@login');
+$this->post('logout', 'Auth\LoginController@logout')->name('logout');
+
+// Password Reset Routes...
+$this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+$this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+$this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+$this->post('password/reset', 'Auth\ResetPasswordController@reset');
+
+// Registration routes removed

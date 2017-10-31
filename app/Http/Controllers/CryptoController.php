@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class CryptoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -94,7 +99,6 @@ class CryptoController extends Controller
 
         $crypto = Crypto::find($id);
 
-        $isChanged = false;
         if (isset($crypto)) {
             $this->assignFromRequest($request, $crypto);
 
@@ -102,7 +106,7 @@ class CryptoController extends Controller
             $isChanged = true;
         }
 
-        return view('cryptos.edit', compact('crypto','isChanged'));
+        return view('cryptos.edit', compact('crypto', 'isChanged'));
     }
 
     /**
@@ -114,7 +118,11 @@ class CryptoController extends Controller
     public function destroy($id)
     {
         Crypto::destroy($id);
-        return back();
+
+        $isDeleted = true;
+
+        $cryptos = Crypto::all();
+        return view('cryptos.index', compact('cryptos', 'isDeleted'));
     }
 
     /**

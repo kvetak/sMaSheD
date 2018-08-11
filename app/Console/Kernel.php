@@ -14,6 +14,9 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         //
+        // App\Jobs\RefreshMiningProperties::class
+        // \Jobs\RefreshMiningProperties::class
+
     ];
 
     /**
@@ -24,9 +27,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+         // $schedule->job(new \App\Jobs\RefreshMiningProperties)->everyMinute();
+        $schedule->job(new \App\Jobs\RefreshMiningProperties)->cron('0 0-23/3 * * *');
     }
+
 
     /**
      * Register the Closure based commands for the application.

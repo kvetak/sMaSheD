@@ -10,7 +10,7 @@ class AddressController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index']]);
+        $this->middleware('auth', ['except' => ['index', 'json']]);
     }
 
     /**
@@ -140,5 +140,24 @@ class AddressController extends Controller
     {
         $address->address = $request->address;
         $address->server_id = $request->server_id;
+    }
+
+    /**
+     * Display database entries in json format
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function json()
+    {
+        $addresses = Address::all();
+        // $addressesJson = $addresses->toJson();
+        // $addressesJson = [];
+        // foreach ($addresses as $address)
+        // {
+        //     $addressesJson[] = $address->toJson();
+        // }
+
+        // return view('addresses.json', compact('addressesJson'));
+        return response()->json($addresses);
     }
 }

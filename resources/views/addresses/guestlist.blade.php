@@ -1,10 +1,16 @@
 <div class="col-md-12">
-    <table class="table table-striped">
+    <table  id="table"
+            class="table table-striped"
+            data-toggle="table"
+            data-filter-control="true"
+            data-show-export="true"
+            data-click-to-select="true"
+            data-pagination="true">
         <thead>
             <tr>
-                <th>#</th>
-                <th>IP address</th>
-                <th>Server</th>
+                <th data-field="id" data-filter-control="input" data-sortable="true">#</th>
+                <th data-field="address" data-filter-control="input" data-sortable="true">IP address</th>
+                <th ata-field="server" data-filter-control="input" data-sortable="true">Server</th>
             </tr>
         </thead>
         <tbody>

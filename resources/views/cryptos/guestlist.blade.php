@@ -1,11 +1,17 @@
 <div class="col-md-12">
-    <table class="table table-striped">
+    <table  id="table"
+            class="table table-striped"
+            data-toggle="table"
+            data-filter-control="true"
+            data-show-export="true"
+            data-click-to-select="true"
+            data-pagination="true">
         <thead>
             <tr>
-                <th>#</th>
-                <th>Abbreviation</th>
-                <th>Name</th>
-                <th>URL</th>
+                <th data-field="id" data-filter-control="input" data-sortable="true">#</th>
+                <th data-field="abbreviation" data-filter-control="input" data-sortable="true">Abbreviation</th>
+                <th data-field="name" data-filter-control="input" data-sortable="true">Name</th>
+                <th data-field="url" data-filter-control="input" data-sortable="true"> </th>>URL</th>
             </tr>
         </thead>
         <tbody>

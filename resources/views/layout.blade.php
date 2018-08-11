@@ -12,7 +12,20 @@
     <title>{{ config('app.name', 'sMaSheD') }}</title>
 
     <link type="text/css" rel="stylesheet" href="{{ mix('/css/app.css') }}" >
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css"/>
+    <!-- <link rel="stylesheet" href="bootstrap-select/dist/css/bootstrap-select.css" /> -->
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css" >
+    <!-- <link rel="stylesheet" href="bootstrap-table/src/bootstrap-table.css"> -->
+
+
+
 
     <!--
 
@@ -49,6 +62,7 @@
                     <li {{ (Request::is('server') ? 'class=active' : '') }}><a href="{{ url('server')}}">Servers</a></li>
                     <li {{ (Request::is('port') ? 'class=active' : '') }}><a href="{{ url('port')}}">Ports</a></li>
                     <li {{ (Request::is('address') ? 'class=active' : '') }}><a href="{{ url('address')}}">Addresses</a></li>
+                    <li {{ (Request::is('miningProp') ? 'class=active' : '') }}><a href="{{ url('miningProp')}}">Mining Properties</a></li>
                 </ul>
                 <p class="navbar-text">|</p>
                 <ul class="nav navbar-nav">
@@ -84,13 +98,22 @@
 </div>
 
     @yield('footer')
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
+    <!-- <script src="js/query-3.3.1.min.js"></script> -->
 
-    <!--
-    <script type="text/javascript" src="{{ mix('/js/app.js') }}"></script>
-    -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
+    <!-- <script src="bootstrap/js/bootstrap.min.js"></script> -->
+    
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+    <!-- <script src="bootstrap-select/dist/js/bootstrap-select.js"></script> -->
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
+    <!-- <script src="bootstrap-table/src/bootstrap-table.js"></script> -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+    <!-- <script src="bootstrap-table/src/extensions/filter-control/bootstrap-table-filter-control.js"></script> -->
 
 </body>
 </html>

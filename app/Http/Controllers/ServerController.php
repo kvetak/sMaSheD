@@ -15,7 +15,7 @@ class ServerController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index']]);
+        $this->middleware('auth', ['except' => ['index', 'json']]);
     }
 
     /**
@@ -186,5 +186,24 @@ class ServerController extends Controller
             $a->address = $addr;
             $a->save();
         }
+    }
+
+    /**
+     * Display database entries in json format
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function json()
+    {
+        $servers = Server::all();
+        
+        // $serversJson = $servers->toJson();
+        // $serversJson = [];
+        // foreach ($servers as $server)
+        // {
+        //     $serversJson[] = $server->toJson();
+        // }
+
+        return response()->json($servers);
     }
 }

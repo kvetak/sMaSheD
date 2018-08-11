@@ -8,6 +8,7 @@
         "php": ">=7.0.15",
         "barryvdh/laravel-ide-helper": "v2.4.1",
         "consoletvs/charts": "4.*",
+        "doctrine/dbal": "^2.5",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0"
     },
@@ -19,6 +20,9 @@
     "autoload": {
         "classmap": [
             "database"
+        ],
+        "files": [
+            "app/Http/Helpers/helper.php"
         ],
         "psr-4": {
             "App\\": "app/"

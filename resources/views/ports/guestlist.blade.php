@@ -1,11 +1,17 @@
 <div class="col-md-12">
-    <table class="table table-striped">
+    <table  id="table"
+            class="table table-striped"
+            data-toggle="table"
+            data-filter-control="true"
+            data-show-export="true"
+            data-click-to-select="true"
+            data-pagination="true">    
         <thead>
         <tr>
-            <th>#</th>
-            <th>Number</th>
-            <th>Crypto</th>
-            <th>Server</th>
+            <th data-field="id" data-filter-control="input" data-sortable="true">#</th>
+            <th data-field="number" data-filter-control="input" data-sortable="true">Number</th>
+            <th data-field="crypto" data-filter-control="input" data-sortable="true">Crypto</th>
+            <th data-field="server" data-filter-control="input" data-sortable="true">Server</th>
         </tr>
         </thead>
         <tbody>

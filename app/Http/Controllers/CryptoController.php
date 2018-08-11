@@ -9,7 +9,7 @@ class CryptoController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index']]);
+        $this->middleware('auth', ['except' => ['index', 'json']]);
     }
 
     /**
@@ -134,5 +134,25 @@ class CryptoController extends Controller
         $crypto->abbreviation = $request->abbreviation;
         $crypto->name = $request->name;
         $crypto->url = $request->url;
+    }
+
+
+    /**
+     * Display database entries in json format
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function json()
+    {
+        $cryptos = Crypto::all();
+        $cryptosJson = $cryptos->toJson();
+        // $cryptosJson = [];
+        // foreach ($cryptos as $crypto)
+        // {
+        //     $cryptosJson[] = $crypto->toJson();
+        // }
+
+        // return view('cryptos.json', compact('cryptosJson'));
+        return response()->json($cryptos);
     }
 }

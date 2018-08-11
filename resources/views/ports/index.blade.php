@@ -29,10 +29,6 @@
 
         <div class="clearfix"></div>
         <hr/>
-    @else
-        <div class="alert alert-warning">
-            <span class="glyphicon glyphicon-lock"></span>  Some features are unavailable for unauthenticated users
-        </div>
     @endif
 
     <h2>List</h2>

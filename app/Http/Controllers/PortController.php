@@ -12,7 +12,7 @@ class PortController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index']]);
+        $this->middleware('auth', ['except' => ['index', 'json']]);
     }
 
     /**
@@ -153,5 +153,21 @@ class PortController extends Controller
         $port->number = $request->number;
         $port->crypto_id = $request->crypto_id;
         $port->server_id = $request->server_id;
+    }
+
+
+    public function json()
+    {
+        $ports = port::all();
+
+        // $portsJson = $ports->toJson();
+        // $portsJson = [];
+        // foreach ($ports as $port)
+        // {
+        //     $portsJson[] = $port->toJson();
+        // }
+        // return view('ports.json', compact('portsJson'));
+
+        return response()->json($ports);
     }
 }

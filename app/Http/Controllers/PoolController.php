@@ -9,7 +9,7 @@ class PoolController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index']]);
+        $this->middleware('auth', ['except' => ['index', 'json']]);
     }
 
     /**
@@ -132,5 +132,26 @@ class PoolController extends Controller
     {
         $pool->name = $request->name;
         $pool->url = $request->url;
+    }
+
+
+    /**
+     * Display database entries in json format
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function json()
+    {
+        $pools = Pool::all();
+        
+        // $poolsJson = $pools->toJson();
+        // $poolsJson = [];
+        // foreach ($pools as $pool)
+        // {
+        //     $poolsJson[] = $pool->toJson();
+        // }
+        // return view('pools.json', compact('poolsJson'));
+
+        return response()->json($pools);
     }
 }

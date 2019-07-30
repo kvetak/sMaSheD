@@ -29,13 +29,7 @@ class RefreshMiningProperties implements ShouldQueue
      */
     public function __construct()
     {
-        // select matching data based on server ID from tables servers, miningProperties, addresses
-        $this->data = DB::table('servers')
-                        ->join('ports', 'servers.id', '=', 'ports.server_id')
-                        ->join('addresses', 'servers.id', '=', 'addresses.server_id')
-                        ->select('servers.id', 'ports.number', 'addresses.address')
-                        ->distinct()
-                        ->get();
+
     }
 
     /**
@@ -47,6 +41,14 @@ class RefreshMiningProperties implements ShouldQueue
     {
         // init service
         $this->service = $service;
+
+        // select matching data based on server ID from tables servers, miningProperties, addresses
+        $this->data = DB::table('servers')
+            ->join('ports', 'servers.id', '=', 'ports.server_id')
+            ->join('addresses', 'servers.id', '=', 'addresses.server_id')
+            ->select('servers.id', 'ports.number', 'addresses.address')
+            ->distinct()
+            ->get();
 
         // define protocols
         $protocols = ['stratum', 'getblocktemplate'/*, 'getwork'*/];

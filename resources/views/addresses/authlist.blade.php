@@ -18,7 +18,7 @@
         <tbody>
             @foreach($addresses as $addr)
                 <tr>
-                    <td class="col-md-1"><a href="{{ url('port', $addr->id ) }}">{{ $addr->id }}</a></td>
+                    <td class="col-md-1"><a href="{{ url('address', $addr->id ) }}">{{ $addr->id }}</a></td>
                     <td class="col-md-2">{{ $addr->address }}</td>
                     <td class="col-md-3"><a href="{{ url('server', $addr->server->id) }}" >{{ $addr->server->fqdn }}</a></td>
                     <td class="col-md-1">

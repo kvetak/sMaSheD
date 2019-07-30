@@ -20,7 +20,7 @@ class AddressController extends Controller
      */
     public function index()
     {
-        $addresses = Address::all();
+        $addresses = Address::all()->reverse();
         $servers = Server::all();
         return view('addresses.index', compact('addresses','servers'));
     }
@@ -83,6 +83,7 @@ class AddressController extends Controller
      */
     public function edit($id)
     {
+        //dd($id);
         $address = Address::find($id);
         $servers = Server::all();
         return view('addresses.edit', compact('address','servers'));

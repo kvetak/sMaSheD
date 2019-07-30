@@ -20,9 +20,8 @@
         <tbody>
             @foreach($miningProps as $miningProp)
                 <tr>
-                    <td class="col-md-1">{{ $miningProp->id }}</td>
+                    <td class="col-md-1"><a href="{{ url('miningProp', $miningProp->id) }}">{{ $miningProp->id }}</a></td>
                     <td class="col-md-2">
-                        <a href="{{ url('server', $miningProp->server_id) }}"> 
                         {{ $miningProp->server->fqdn }}
                     </td>
                     <td class="col-md-3">{{ $miningProp->address }}</td>

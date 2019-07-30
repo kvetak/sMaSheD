@@ -16,7 +16,7 @@ class CreateMiningPropertyTable extends Migration
         Schema::create('miningProperties', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('server_id');
-            $table->foreign('server_id')->references('id')->on('servers');
+            $table->foreign('server_id')->references('id')->on('servers')->onDelete('cascade');
             $table->ipAddress('address');
             $table->string('protocol');
             $table->unsignedInteger('port');

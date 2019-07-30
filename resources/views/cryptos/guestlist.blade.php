@@ -11,7 +11,7 @@
                 <th data-field="id" data-filter-control="input" data-sortable="true">#</th>
                 <th data-field="abbreviation" data-filter-control="input" data-sortable="true">Abbreviation</th>
                 <th data-field="name" data-filter-control="input" data-sortable="true">Name</th>
-                <th data-field="url" data-filter-control="input" data-sortable="true"> </th>>URL</th>
+                <th data-field="url" data-filter-control="input" data-sortable="true">URL</th>
             </tr>
         </thead>
         <tbody>

@@ -7,6 +7,7 @@
             <div class="panel-heading">Login</div>
 
             <div class="panel-body">
+                Logging into the system offers direct manipulation with the database content (e.g., adding new pools and servers). However, it is not necessary from the perspective of user, who leverages system for data or monitoring purposes.
                 <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                     {{ csrf_field() }}
 

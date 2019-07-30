@@ -15,6 +15,6 @@ class History extends Model
 
     public function miningProp()
     {
-        return $this->belongsTo(MiningProp::class);
+        return $this->belongsTo(MiningProp::class,'miningProp_id');
     }
 }

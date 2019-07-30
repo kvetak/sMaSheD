@@ -11,14 +11,17 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', 'SearchController@index');
 Route::post('/', 'SearchController@query');
 
 Route::get('dashboard', 'DashboardController@index');
 
-Route::get('server', 'ServerController@index');
+Route::get('server', 'ServerController@index')->name('serverIndex');
 Route::post('server', 'ServerController@store');
 Route::get('server/json', 'ServerController@json');
+Route::get('server/refresh', 'ServerController@refresh')->name('serverRefresh');
 Route::get('server/create', 'ServerController@create');
 Route::get('server/{id}', 'ServerController@show');
 Route::patch('server/{id}', 'ServerController@update');
@@ -61,7 +64,7 @@ Route::patch('address/{id}', 'AddressController@update');
 Route::get('address/{id}/edit', 'AddressController@edit');
 Route::delete('address/{id}/destroy', 'AddressController@destroy');
 
-Route::get('miningProp', 'MiningPropController@index');
+Route::get('miningProp', 'MiningPropController@index')->name('miningProp');
 Route::get('miningProp/json', 'MiningPropController@json');
 Route::get('miningProp/jsonHistoryAll', 'MiningPropController@jsonHistoryAll');
 Route::get('miningProp/refresh', 'MiningPropController@refresh');
@@ -70,15 +73,5 @@ Route::get('miningProp/{id}', 'MiningPropController@show');
 Route::get('miningProp/{id}/json', 'MiningPropController@jsonHistory');
 Route::get('miningProp/{id}/clear', 'MiningPropController@historyClear');
 
-// Authentication Routes...
-$this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
-$this->post('login', 'Auth\LoginController@login');
-$this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
-// Password Reset Routes...
-$this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-$this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-$this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-$this->post('password/reset', 'Auth\ResetPasswordController@reset');
-
-// Registration routes removed
+Auth::routes();

@@ -2,7 +2,7 @@
     {{ csrf_field() }}
     {{ method_field( $method ) }}
     <div class="row col-md-12 form-group">
-        <div class="col-md-1"> <input class="form-control" type="text" placeholder="Port" name="number" required value="{{ $number }}"> </div>
+        <div class="col-md-2"> <input class="form-control" type="text" placeholder="Port" name="number" required value="{{ $number }}"> </div>
         <div class="col-md-3 selectContainer">
             <select title="Choose a crypto" class="selectpicker" name="crypto_id" data-show-subtext="true" data-live-search="true" >
                 @foreach($cryptos as $cry)

@@ -17,7 +17,7 @@ class CreateServersTable extends Migration
             $table->increments('id');
             $table->string('fqdn');
             $table->unsignedInteger('pool_id');
-            $table->foreign('pool_id')->references('id')->on('pools');
+            $table->foreign('pool_id')->references('id')->on('pools')->onDelete('cascade');
             $table->timestamps();
         });
     }

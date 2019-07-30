@@ -10,7 +10,7 @@
             <tr>
                 <th data-field="id" data-filter-control="input" data-sortable="true">#</th>
                 <th data-field="address" data-filter-control="input" data-sortable="true">IP address</th>
-                <th ata-field="server" data-filter-control="input" data-sortable="true">Server</th>
+                <th data-field="server" data-filter-control="input" data-sortable="true">Server</th>
             </tr>
         </thead>
         <tbody>

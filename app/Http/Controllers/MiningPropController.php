@@ -17,7 +17,7 @@ class MiningPropController extends Controller
 
     public function __construct(RefreshService $service)
     {
-        $this->middleware('auth', ['except' => ['index', 'json', 'jsonHistory', 'jsonHistoryAll']]);
+        $this->middleware('auth', ['except' => ['index', 'show', 'json', 'jsonHistory', 'jsonHistoryAll']]);
         $this->service = $service;
     }
 
@@ -27,13 +27,15 @@ class MiningPropController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $miningProps = MiningProp::all();
+        //dd($request);
+        $dispatch = $request->has('dispatch');
+        $miningProps = MiningProp::all()->reverse();
         // default pagination
         // $miningProps = MiningProp::paginate(30);
 
-        return view('miningProperties.index', compact('miningProps'));
+        return view('miningProperties.index', compact('miningProps', 'dispatch'));
     }
 
 
@@ -47,7 +49,7 @@ class MiningPropController extends Controller
     {
         // $miningProps = MiningProp::paginate(30);
 
-        $history = History::where('miningProp_id', $id)->paginate(10);
+        $history = History::where('miningProp_id', $id)->orderBy('id', 'desc')->paginate(10);
         // $history = History::where('miningProp_id', $id)->get();
         $miningProp = MiningProp::find($id);
         
@@ -64,7 +66,7 @@ class MiningPropController extends Controller
         // dispatch job RefreshMiningProperties
         RefreshMiningProperties::dispatch();
 
-        return redirect('miningProp');
+        return redirect()->route('miningProp', ['dispatch' => true]);
     }
 
     /**

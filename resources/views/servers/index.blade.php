@@ -2,13 +2,17 @@
 
 @section('content')
     <div class="page-header">
-        <h1>Servers: Index</h1>
+        <h1>Servers: Index
+            <a class="btn btn-danger" href="{{ route('serverRefresh') }}">Refresh IPs</a>
+        </h1>
     </div>
 
     @if ( isset($isChanged) )
         <div class="alert alert-success">Server saved successfully!</div>
     @elseif ( isset($isDeleted) )
         <div class="alert alert-success">Server deleted successfully!</div>
+    @elseif ( isset($isRefreshed) )
+        <div class="alert alert-success">All server addresses refreshed!</div>
     @endif
 
     @if ( Auth::check() )
@@ -28,7 +32,7 @@
         <hr/>
     @endif
 
-    <h2>List</h2>
+    <h2>List @if( Auth::check()) <a class="btn btn-info" href="server/json">JSON</a> @endif</h2>
     <p>All currently recognized pools in system.</p>
 
     @if ( Auth::check() )

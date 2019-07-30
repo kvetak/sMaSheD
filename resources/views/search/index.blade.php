@@ -20,7 +20,7 @@
         {{ method_field( "POST" ) }}
         <div class="row col-md-10">
             <div class="col-md-7">
-                <input class="form-control" placeholder="IP[:port] | FQDN" name="query">
+                <input class="form-control" placeholder="IP[:port] or fully qualified domain name" name="query">
             </div>
             <div class="col-md-3">
                 <button class="btn btn-primary">Search</button>

@@ -18,8 +18,8 @@ class CreatePortsTable extends Migration
             $table->unsignedInteger('number');
             $table->unsignedInteger('server_id');
             $table->unsignedInteger('crypto_id');
-            $table->foreign('server_id')->references('id')->on('servers');
-            $table->foreign('crypto_id')->references('id')->on('cryptos');
+            $table->foreign('server_id')->references('id')->on('servers')->onDelete('cascade');
+            $table->foreign('crypto_id')->references('id')->on('cryptos')->onDelete('cascade');
             $table->timestamps();
         });
     }

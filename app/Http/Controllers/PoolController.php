@@ -19,7 +19,7 @@ class PoolController extends Controller
      */
     public function index()
     {
-        $pools = Pool::all();
+        $pools = Pool::all()->reverse();
         return view('pools.index', compact('pools'));
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\MiningProp;
 use DB;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,8 @@ class DashboardController extends Controller
         $counts['server'] = DB::table('servers')->count();
         $counts['port'] = DB::table('ports')->select('number')->groupBy('number')->count();
         $counts['address'] = DB::table('addresses')->count();
+        $counts['probes'] = DB::table('miningProperties')->count();
+        $counts['history'] = DB::table('history')->count();
 
         $charts['summary_counts_chart'] = Charts::create('bar', 'highcharts')
             ->title('Count')

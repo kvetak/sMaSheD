@@ -19,7 +19,7 @@ class CryptoController extends Controller
      */
     public function index()
     {
-        $cryptos = Crypto::all();
+        $cryptos = Crypto::all()->reverse();
         return view('cryptos.index', compact('cryptos'));
     }
 

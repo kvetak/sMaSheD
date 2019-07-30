@@ -28,5 +28,10 @@ class Server extends Model
         return $this->hasMany(Port::class);
     }
 
+    public function miningProps() {
+        return $this->hasMany(MiningProp::class);
+    }
+
+
 
 }

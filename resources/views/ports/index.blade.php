@@ -31,7 +31,7 @@
         <hr/>
     @endif
 
-    <h2>List</h2>
+    <h2>List @if( Auth::check()) <a class="btn btn-info" href="port/json">JSON</a> @endif</h2>
     <p>All currently recognized ports in system.</p>
 
     @if ( Auth::check() )

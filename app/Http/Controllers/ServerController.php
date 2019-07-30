@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\History;
+use App\Jobs\RefreshServers;
+use App\MiningProp;
 use App\Server;
 use App\Pool;
 use App\Crypto;
@@ -150,15 +153,33 @@ class ServerController extends Controller
      */
     public function destroy($id)
     {
-        Server::destroy($id);
+        $server = Server::find($id);
+        foreach ($server->miningProps()->get() as $prop) {
+            //dd($prop->history()->get());
+            $prop->history()->delete();
+        }
+        $server->miningProps()->delete();
+        $server->delete();
 
-        $isDeleted = ture;
+        $isDeleted = true;
 
         $servers = Server::all()->reverse();
         $pools = Pool::hydrate( DB::table('pools')->orderBy('name')->get()->toArray() );
         return view('servers.index', compact('servers','pools', 'isDeleted'));
     }
 
+    public function refresh()
+    {
+        RefreshServers::dispatch();
+
+        $isRefreshed = true;
+
+        $servers = Server::all()->reverse();
+        $pools = Pool::hydrate( DB::table('pools')->orderBy('name')->get()->toArray() );
+        return view('servers.index', compact('servers','pools', 'isRefreshed'));
+
+    }
+    
     /**
      * @param Request $request
      * @param $server
@@ -173,18 +194,21 @@ class ServerController extends Controller
      * @param $server
      * @param $addrs
      */
-    protected function updateAddresses($server)
+    public static function updateAddresses($server)
     {
-        $col = Address::all()->where('server_id', $server->id);
         $addrs = gethostbynamel($server->fqdn);
-        foreach ($addrs as $addr) {
-            //Continue if address already in table
-            if ($col->contains('address', $addr)) continue;
-            //otherwise add a new address
-            $a = new Address;
-            $a->server_id = $server->id;
-            $a->address = $addr;
-            $a->save();
+
+        if ($addrs) {
+            $col = Address::all()->where('server_id', $server->id);
+            foreach ($addrs as $addr) {
+                //Continue if address already in table
+                if ($col->contains('address', $addr)) continue;
+                //otherwise add a new address
+                $a = new Address;
+                $a->server_id = $server->id;
+                $a->address = $addr;
+                $a->save();
+            }
         }
     }
 

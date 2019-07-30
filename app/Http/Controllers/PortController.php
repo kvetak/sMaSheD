@@ -22,7 +22,7 @@ class PortController extends Controller
      */
     public function index()
     {
-        $ports = Port::all();
+        $ports = Port::all()->reverse();
         $servers = Server::all();
         $cryptos = Crypto::hydrate( DB::table('cryptos')->orderBy('name')->get()->toArray() );
         return view('ports.index', compact('ports','servers', 'cryptos'));

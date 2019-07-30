@@ -10,7 +10,7 @@
     @else
 
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Database detail</h3>
@@ -62,6 +62,17 @@
                             <tr>
                                 <th>Timestamps</th>
                                 <td>{{ $miningProp->created_at }} <br> {{ $miningProp->updated_at }}</td>
+                            </tr>
+{{--                            <tr>--}}
+{{--                                <th>Actions</th>--}}
+{{--                                <td>--}}
+{{--                                    <a class="btn btn-info" href="{{ url('miningProp/' . $miningProp->id . '/edit') }}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>--}}
+{{--                                    <br>--}}
+{{--                                    @include('utils.delete', array( 'url' => url('miningProp/' . $miningProp->id . '/destroy'),--}}
+{{--                                                                    'class' => 'btn btn-danger',--}}
+{{--                                                                    'text' => '<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete'))--}}
+{{--                                </td>--}}
+{{--                            </tr>--}}
                             </tbody>
                         </table>
                     </div>
@@ -70,7 +81,7 @@
 
             <div>
 
-                <div class="col-sm-6">
+                <div class="col-sm-8">
                     <div class="panel panel-info">
                         <div class="panel-heading">
                             <h3 class="panel-title">History (log)</h3>
@@ -107,7 +118,7 @@
                                     @foreach($history as $record)
                                         <tr>
                                             <td class="col-md-1">{{ $record->id }}</td>
-                                            <td class="col-md-2">
+                                            <td class="col-md-1">
                                                 <p hidden>{{ convertMiningPropStatus($record->status) }}</p>
                                                 <p class="text-left">
                                                     @if($record->status === 1)
@@ -120,8 +131,8 @@
                                                 </p>
                                                 <!-- {{ convertMiningPropStatus($miningProp->status) }} -->
                                             </td>
-                                            <td class="col-md-3">{{ $record->reason }}</td>
-                                            <td class="col-md-4">{{ $record->created_at }}</td>
+                                            <td class="col-md-4">{{ $record->reason }}</td>
+                                            <td class="col-md-2">{{ $record->created_at }}</td>
                                         </tr>           
                                     @endforeach
 

@@ -2,20 +2,17 @@
 
 @section('content')
     <div class="page-header">
-        <h1>Mining Properties: Index</h1>
+        <h1>
+            Mining Properties: Index
+            @if( Auth::check()) <a class="btn btn-danger" href="{{ 'miningProp/refresh' }}">Dispatch probing</a> @endif
+        </h1>
     </div>
 
-     @if ( Auth::check() )
-        <h2>Actions:</h2>
-        <a class="btn btn-primary" href="{{ 'miningProp/refresh' }}">Refresh data</a>
-        <!-- <a class="btn btn-danger" href="{{ 'miningProp/clear' }}">Clear table</a> -->
-        <a class="hidden" href="{{ 'miningProp/clear' }}">Clear table</a>
-        <a class="btn btn-info" href="{{ 'miningProp/json' }}">JSON</a>
-        <div class="clearfix"></div>
-        <hr/>
+    @if ( isset($dispatch) && $dispatch )
+        <div class="alert alert-success">Mining probes dispatched</div>
     @endif
 
-    <h2>List</h2>
+    <h2>List @if( Auth::check()) <a class="btn btn-info" href="miningProp/json">JSON</a> @endif</h2>
 
     <p>All currently recognized mining properties in system.</p>
     @if ( Auth::check() )

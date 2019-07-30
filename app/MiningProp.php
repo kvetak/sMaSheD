@@ -20,6 +20,6 @@ class MiningProp extends Model
 
     public function history()
     {
-        return $this->hasMany(History::class);
+        return $this->hasMany(History::class,'miningProp_id');
     }
 }

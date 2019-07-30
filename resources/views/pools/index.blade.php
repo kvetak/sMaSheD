@@ -27,7 +27,7 @@
         <hr/>
     @endif
 
-    <h2>List</h2>
+    <h2>List @if( Auth::check()) <a class="btn btn-info" href="pool/json">JSON</a> @endif</h2>
     <p>All currently recognized pools in system.</p>
 
     @if ( Auth::check() )

@@ -1,5 +1,9 @@
-<form action="{{ $url or Request::url() }}" class="form-inline" method="POST">
+<form action="{{ isset($url) ? $url : Request::url() }}" class="form-inline" method="POST">
     {{ method_field('DELETE') }}
     {{ csrf_field() }}
-    <button type='submit' class="{{ $class or 'btn btn-link' }}" value="{{ $value or 'delete' }}">{!! $text or 'delete' !!}</button>
+    <button type='submit'
+            class="{{ isset($class) ? $class : 'btn btn-link' }}"
+            value="{{ isset($value) ? $value  : 'delete' }}">
+        {!! isset($text) ? $text : 'delete' !!}
+    </button>
 </form>

@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'sMaSheD') }}</title>
+    <title>sMaSheD - Cryptocurrency Mining Server Detector</title>
 
     <link type="text/css" rel="stylesheet" href="{{ mix('/css/app.css') }}" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

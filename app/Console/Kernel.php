@@ -24,11 +24,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->job(new \App\Jobs\RefreshServers)->everyMinute();
-        $schedule->job(new \App\Jobs\RefreshMiningProperties())->everyMinute();
+//        $schedule->job(new \App\Jobs\RefreshServers)->everyMinute();
+//        $schedule->job(new \App\Jobs\RefreshMiningProperties())->everyMinute();
 
-//        $schedule->job(new \App\Jobs\RefreshServers)->everyThirtyMinutes();
-//        $schedule->job(new \App\Jobs\RefreshMiningProperties())->hourly();
+        $schedule->job(new \App\Jobs\RefreshServers)->everyThirtyMinutes();
+        $schedule->job(new \App\Jobs\RefreshMiningProperties())->hourly();
     }
 
     /**

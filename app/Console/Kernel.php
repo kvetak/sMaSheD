@@ -29,6 +29,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->job(new \App\Jobs\RefreshServers)->everyThirtyMinutes();
         $schedule->job(new \App\Jobs\RefreshMiningProperties())->cron('0 0-23/3 * * *');
+
     }
 
     /**

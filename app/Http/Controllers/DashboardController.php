@@ -15,7 +15,7 @@ class DashboardController extends Controller
         $counts['pool'] = DB::table('pools')->count();
         $counts['crypto'] = DB::table('cryptos')->count();
         $counts['server'] = DB::table('servers')->count();
-        $counts['port'] = DB::table('ports')->select('number')->groupBy('number')->count();
+        $counts['port'] = DB::table('ports')->select('number')->get()->unique()->sort();
         $counts['address'] = DB::table('addresses')->count();
         $counts['probes'] = DB::table('miningProperties')->count();
         $counts['history'] = DB::table('history')->count();

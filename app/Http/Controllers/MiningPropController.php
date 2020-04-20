@@ -31,7 +31,10 @@ class MiningPropController extends Controller
     {
         //dd($request);
         $dispatch = $request->has('dispatch');
-        $miningProps = MiningProp::all()->reverse();
+        $miningProps = MiningProp::all()->sort(function ($a, $b) {
+            if ($a->status == 1) return 0;
+            else return 1;
+        });
         // default pagination
         // $miningProps = MiningProp::paginate(30);
 

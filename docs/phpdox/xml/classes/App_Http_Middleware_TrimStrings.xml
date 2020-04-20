@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Http\Middleware\TrimStrings" namespace="App\Http\Middleware" name="TrimStrings" abstract="false" final="false" start="7" end="18">
+  <file path="E:/GitHub/sMaSheD/app/Http/Middleware" file="TrimStrings.php" realpath="E:/GitHub/sMaSheD/app/Http/Middleware/TrimStrings.php" size="358" time="2019-09-25T18:04:11+00:00" unixtime="1569434651" sha1="9c1ee984b36d92184dda94df903a08425ba67879" relative="Http/Middleware/TrimStrings.php"/>
+  <extends full="Illuminate\Foundation\Http\Middleware\TrimStrings" namespace="Illuminate\Foundation\Http\Middleware" name="TrimStrings" unresolved="true"/>
+  <member name="except" default="" type="array" visibility="protected" static="false" line="14">
+    <docblock>
+      <description compact="The names of the attributes that should not be trimmed."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+</class>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Port" namespace="App" name="Port" abstract="false" final="false" start="7" end="26">
+  <file path="E:/GitHub/sMaSheD/app" file="Port.php" realpath="E:/GitHub/sMaSheD/app/Port.php" size="392" time="2019-09-25T18:04:09+00:00" unixtime="1569434649" sha1="d130fbd171c33a24be24cbd194ceebabc7c68742" relative="Port.php"/>
+  <extends full="Illuminate\Database\Eloquent\Model" namespace="Illuminate\Database\Eloquent" name="Model" unresolved="true"/>
+  <member name="table" default="'ports'" type="string" visibility="protected" static="false" line="14">
+    <docblock>
+      <description compact="The table associated with the model."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <method name="server" start="16" end="19" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="crypto" start="21" end="24" abstract="false" final="false" static="false" visibility="public"/>
+</class>

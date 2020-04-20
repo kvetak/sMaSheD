@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Http\Middleware\CheckForMaintenanceMode" namespace="App\Http\Middleware" name="CheckForMaintenanceMode" abstract="false" final="false" start="7" end="17">
+  <file path="E:/GitHub/sMaSheD/app/Http/Middleware" file="CheckForMaintenanceMode.php" realpath="E:/GitHub/sMaSheD/app/Http/Middleware/CheckForMaintenanceMode.php" size="352" time="2019-09-25T18:04:11+00:00" unixtime="1569434651" sha1="c50978adcb41738da61fdb670cb0622a7b92e22d" relative="Http/Middleware/CheckForMaintenanceMode.php"/>
+  <extends full="Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode" namespace="Illuminate\Foundation\Http\Middleware" name="CheckForMaintenanceMode" unresolved="true"/>
+  <member name="except" default="" type="array" visibility="protected" static="false" line="14">
+    <docblock>
+      <description compact="The URIs that should be reachable while maintenance mode is enabled."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+</class>

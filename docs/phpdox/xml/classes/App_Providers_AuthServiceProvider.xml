@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Providers\AuthServiceProvider" namespace="App\Providers" name="AuthServiceProvider" abstract="false" final="false" start="8" end="30">
+  <file path="E:/GitHub/sMaSheD/app/Providers" file="AuthServiceProvider.php" realpath="E:/GitHub/sMaSheD/app/Providers/AuthServiceProvider.php" size="608" time="2019-09-25T18:04:12+00:00" unixtime="1569434652" sha1="1b76fd6b342b98aae925da170c6ce34d817c339a" relative="Providers/AuthServiceProvider.php"/>
+  <extends full="Illuminate\Foundation\Support\Providers\AuthServiceProvider" namespace="Illuminate\Foundation\Support\Providers" name="AuthServiceProvider" unresolved="true"/>
+  <member name="policies" default="" type="array" visibility="protected" static="false" line="15">
+    <docblock>
+      <description compact="The policy mappings for the application."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="boot" start="24" end="29" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register any authentication / authorization services."/>
+      <return type="object">
+        <type full="App\Providers\void" namespace="App\Providers" name="void"/>
+      </return>
+    </docblock>
+  </method>
+</class>

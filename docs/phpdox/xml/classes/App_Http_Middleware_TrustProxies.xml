@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Http\Middleware\TrustProxies" namespace="App\Http\Middleware" name="TrustProxies" abstract="false" final="false" start="8" end="23">
+  <file path="E:/GitHub/sMaSheD/app/Http/Middleware" file="TrustProxies.php" realpath="E:/GitHub/sMaSheD/app/Http/Middleware/TrustProxies.php" size="459" time="2019-09-25T18:04:11+00:00" unixtime="1569434651" sha1="776bdcbd02539b6b465d4dae7175796fe11044f9" relative="Http/Middleware/TrustProxies.php"/>
+  <extends full="Fideloper\Proxy\TrustProxies" namespace="Fideloper\Proxy" name="TrustProxies" unresolved="true"/>
+  <member name="proxies" visibility="protected" static="false" line="15">
+    <docblock>
+      <description compact="The trusted proxies for this application."/>
+      <var type="object">
+        <type full="App\Http\Middleware\array|string" namespace="App\Http\Middleware" name="array|string"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="headers" default="" type="{unknown}" constant="Request::HEADER_X_FORWARDED_ALL" visibility="protected" static="false" line="22">
+    <docblock>
+      <description compact="The headers that should be used to detect proxies."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+</class>

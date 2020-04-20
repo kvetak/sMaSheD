@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Pool" namespace="App" name="Pool" abstract="false" final="false" start="7" end="20">
+  <file path="E:/GitHub/sMaSheD/app" file="Pool.php" realpath="E:/GitHub/sMaSheD/app/Pool.php" size="300" time="2019-09-25T18:04:09+00:00" unixtime="1569434649" sha1="edef4fa7d44cab01a6bf60abe5ba860953abf599" relative="Pool.php"/>
+  <extends full="Illuminate\Database\Eloquent\Model" namespace="Illuminate\Database\Eloquent" name="Model" unresolved="true"/>
+  <member name="table" default="'pools'" type="string" visibility="protected" static="false" line="14">
+    <docblock>
+      <description compact="The table associated with the model."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <method name="servers" start="16" end="19" abstract="false" final="false" static="false" visibility="public"/>
+</class>

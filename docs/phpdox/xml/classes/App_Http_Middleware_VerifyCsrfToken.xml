@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Http\Middleware\VerifyCsrfToken" namespace="App\Http\Middleware" name="VerifyCsrfToken" abstract="false" final="false" start="7" end="24">
+  <file path="E:/GitHub/sMaSheD/app/Http/Middleware" file="VerifyCsrfToken.php" realpath="E:/GitHub/sMaSheD/app/Http/Middleware/VerifyCsrfToken.php" size="487" time="2019-09-25T18:04:12+00:00" unixtime="1569434652" sha1="ee55d0c7564a8e0005206b311c6039c236a73f42" relative="Http/Middleware/VerifyCsrfToken.php"/>
+  <extends full="Illuminate\Foundation\Http\Middleware\VerifyCsrfToken" namespace="Illuminate\Foundation\Http\Middleware" name="VerifyCsrfToken" unresolved="true"/>
+  <member name="addHttpCookie" default="true" type="boolean" visibility="protected" static="false" line="14">
+    <docblock>
+      <description compact="Indicates whether the XSRF-TOKEN cookie should be set on the response."/>
+      <var type="object">
+        <type full="App\Http\Middleware\bool" namespace="App\Http\Middleware" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="except" default="" type="array" visibility="protected" static="false" line="21">
+    <docblock>
+      <description compact="The URIs that should be excluded from CSRF verification."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+</class>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Http\Controllers\ServerController" namespace="App\Http\Controllers" name="ServerController" abstract="false" final="false" start="17" end="233">
+  <file path="E:/GitHub/sMaSheD/app/Http/Controllers" file="ServerController.php" realpath="E:/GitHub/sMaSheD/app/Http/Controllers/ServerController.php" size="6256" time="2019-09-25T18:04:11+00:00" unixtime="1569434651" sha1="a7f321217dac87cd952c47c876b08abda966f4f7" relative="Http/Controllers/ServerController.php"/>
+  <extends full="App\Http\Controllers\Controller" namespace="App\Http\Controllers" name="Controller"/>
+  <constructor name="__construct" start="19" end="22" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="index" start="29" end="34" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Display a listing of the resource."/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="create" start="41" end="45" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Show the form for creating a new resource."/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="store" start="53" end="89" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Store a newly created resource in storage."/>
+      <param type="object" variable="$request">
+        <type full="\Illuminate\Http\Request" namespace="\Illuminate\Http" name="Request"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+    </parameter>
+    <inline>
+      <comment value="Port exists" line="74"/>
+    </inline>
+  </method>
+  <method name="show" start="97" end="102" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Display the specified resource."/>
+      <param type="int" variable="$id"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="edit" start="110" end="116" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Show the form for editing the specified resource."/>
+      <param type="int" variable="$id"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="update" start="125" end="146" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Update the specified resource in storage."/>
+      <param type="object" variable="$request">
+        <type full="\Illuminate\Http\Request" namespace="\Illuminate\Http" name="Request"/>
+      </param>
+      <param type="int" variable="$id"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+    </parameter>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="destroy" start="154" end="169" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove the specified resource from storage."/>
+      <param type="int" variable="$id"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="refresh" start="171" end="181" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="assignFromRequest" start="187" end="191" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="object" variable="$request">
+        <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+      </param>
+      <param variable="$server"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+    </parameter>
+    <parameter name="server" byreference="false" type="object">
+      <type full="App\Server" namespace="App" name="Server"/>
+    </parameter>
+  </method>
+  <method name="updateAddresses" start="197" end="213" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param variable="$server"/>
+      <param variable="$addrs"/>
+    </docblock>
+    <parameter name="server" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="json" start="220" end="232" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Display database entries in json format"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <inline>
+      <comment value="$serversJson = $servers-&gt;toJson();" line="224"/>
+      <comment value="$serversJson = [];" line="225"/>
+      <comment value="foreach ($servers as $server)" line="226"/>
+      <comment value="{" line="227"/>
+      <comment value="$serversJson[] = $server-&gt;toJson();" line="228"/>
+      <comment value="}" line="229"/>
+    </inline>
+  </method>
+  <parent full="App\Http\Controllers\Controller" namespace="App\Http\Controllers" name="Controller">
+    <extends full="Illuminate\Routing\Controller" namespace="Illuminate\Routing" name="Controller" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Auth\Access\AuthorizesRequests" namespace="Illuminate\Foundation\Auth\Access" name="AuthorizesRequests" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Bus\DispatchesJobs" namespace="Illuminate\Foundation\Bus" name="DispatchesJobs" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Validation\ValidatesRequests" namespace="Illuminate\Foundation\Validation" name="ValidatesRequests" unresolved="true"/>
+  </parent>
+</class>

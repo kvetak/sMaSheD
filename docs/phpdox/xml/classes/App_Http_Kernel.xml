@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Http\Kernel" namespace="App\Http" name="Kernel" abstract="false" final="false" start="7" end="80">
+  <file path="E:/GitHub/sMaSheD/app/Http" file="Kernel.php" realpath="E:/GitHub/sMaSheD/app/Http/Kernel.php" size="2903" time="2019-09-25T18:04:10+00:00" unixtime="1569434650" sha1="c24a430fa44da1bc7a5f3682b19a36cd886d9ca0" relative="Http/Kernel.php"/>
+  <extends full="Illuminate\Foundation\Http\Kernel" namespace="Illuminate\Foundation\Http" name="Kernel" unresolved="true"/>
+  <member name="middleware" default="" type="array" visibility="protected" static="false" line="16">
+    <docblock>
+      <description compact="The application's global HTTP middleware stack.">These middleware are run during every request to your application.</description>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="middlewareGroups" default="" type="array" visibility="protected" static="false" line="29">
+    <docblock>
+      <description compact="The application's route middleware groups."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="routeMiddleware" default="" type="array" visibility="protected" static="false" line="53">
+    <docblock>
+      <description compact="The application's route middleware.">These middleware may be assigned to groups or used individually.</description>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="middlewarePriority" default="" type="array" visibility="protected" static="false" line="72">
+    <docblock>
+      <description compact="The priority-sorted list of middleware.">This forces non-global middleware to always be in the given order.</description>
+      <var type="array"/>
+    </docblock>
+  </member>
+</class>

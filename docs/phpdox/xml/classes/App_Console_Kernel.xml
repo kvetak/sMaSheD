@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Console\Kernel" namespace="App\Console" name="Kernel" abstract="false" final="false" start="8" end="46">
+  <file path="E:/GitHub/sMaSheD/app/Console" file="Kernel.php" realpath="E:/GitHub/sMaSheD/app/Console/Kernel.php" size="1141" time="2019-09-25T18:04:09+00:00" unixtime="1569434649" sha1="8a92388b18d9c887f518ebad31f4e0a69964b583" relative="Console/Kernel.php"/>
+  <extends full="Illuminate\Foundation\Console\Kernel" namespace="Illuminate\Foundation\Console" name="Kernel" unresolved="true"/>
+  <member name="commands" default="" type="array" visibility="protected" static="false" line="15">
+    <docblock>
+      <description compact="The Artisan commands provided by your application."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="schedule" start="25" end="33" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Define the application's command schedule."/>
+      <param type="object" variable="$schedule">
+        <type full="\Illuminate\Console\Scheduling\Schedule" namespace="\Illuminate\Console\Scheduling" name="Schedule"/>
+      </param>
+      <return type="object">
+        <type full="App\Console\void" namespace="App\Console" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="schedule" byreference="false" type="object">
+      <type full="Illuminate\Console\Scheduling\Schedule" namespace="Illuminate\Console\Scheduling" name="Schedule"/>
+    </parameter>
+    <inline>
+      <comment value="$schedule-&gt;job(new \App\Jobs\RefreshServers)-&gt;everyMinute();" line="27"/>
+      <comment value="$schedule-&gt;job(new \App\Jobs\RefreshMiningProperties())-&gt;everyMinute();" line="28"/>
+    </inline>
+  </method>
+  <method name="commands" start="40" end="45" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Register the commands for the application."/>
+      <return type="object">
+        <type full="App\Console\void" namespace="App\Console" name="void"/>
+      </return>
+    </docblock>
+  </method>
+</class>

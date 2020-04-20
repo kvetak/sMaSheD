@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Providers\EventServiceProvider" namespace="App\Providers" name="EventServiceProvider" abstract="false" final="false" start="10" end="34">
+  <file path="E:/GitHub/sMaSheD/app/Providers" file="EventServiceProvider.php" realpath="E:/GitHub/sMaSheD/app/Providers/EventServiceProvider.php" size="744" time="2019-09-25T18:04:12+00:00" unixtime="1569434652" sha1="d8322045766753e83cddc7aafd08d5a4a7109881" relative="Providers/EventServiceProvider.php"/>
+  <extends full="Illuminate\Foundation\Support\Providers\EventServiceProvider" namespace="Illuminate\Foundation\Support\Providers" name="EventServiceProvider" unresolved="true"/>
+  <member name="listen" default="" type="array" visibility="protected" static="false" line="17">
+    <docblock>
+      <description compact="The event listener mappings for the application."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="boot" start="28" end="33" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register any events for your application."/>
+      <return type="object">
+        <type full="App\Providers\void" namespace="App\Providers" name="void"/>
+      </return>
+    </docblock>
+  </method>
+</class>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\User" namespace="App" name="User" abstract="false" final="false" start="9" end="39">
+  <file path="E:/GitHub/sMaSheD/app" file="User.php" realpath="E:/GitHub/sMaSheD/app/User.php" size="773" time="2019-09-25T18:04:09+00:00" unixtime="1569434649" sha1="8e14b9a01c82fca859dfba07262f9529d609748f" relative="User.php"/>
+  <extends full="Illuminate\Foundation\Auth\User" namespace="Illuminate\Foundation\Auth" name="User" unresolved="true"/>
+  <uses full="Illuminate\Notifications\Notifiable" namespace="Illuminate\Notifications" name="Notifiable" start="11" end="11" unresolved="true"/>
+  <member name="fillable" default="" type="array" visibility="protected" static="false" line="18">
+    <docblock>
+      <description compact="The attributes that are mass assignable."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="hidden" default="" type="array" visibility="protected" static="false" line="27">
+    <docblock>
+      <description compact="The attributes that should be hidden for arrays."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="casts" default="" type="array" visibility="protected" static="false" line="36">
+    <docblock>
+      <description compact="The attributes that should be cast to native types."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+</class>

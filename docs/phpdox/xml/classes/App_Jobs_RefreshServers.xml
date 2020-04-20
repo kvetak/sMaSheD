@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Jobs\RefreshServers" namespace="App\Jobs" name="RefreshServers" abstract="false" final="false" start="13" end="34">
+  <file path="E:/GitHub/sMaSheD/app/Jobs" file="RefreshServers.php" realpath="E:/GitHub/sMaSheD/app/Jobs/RefreshServers.php" size="742" time="2019-09-25T18:04:12+00:00" unixtime="1569434652" sha1="65806178bd8ca6bb9f6e6a548de999e79e92066c" relative="Jobs/RefreshServers.php"/>
+  <implements full="Illuminate\Contracts\Queue\ShouldQueue" namespace="Illuminate\Contracts\Queue" name="ShouldQueue" unresolved="true"/>
+  <uses full="Illuminate\Foundation\Bus\Dispatchable" namespace="Illuminate\Foundation\Bus" name="Dispatchable" start="15" end="15" unresolved="true"/>
+  <uses full="Illuminate\Queue\InteractsWithQueue" namespace="Illuminate\Queue" name="InteractsWithQueue" start="15" end="15" unresolved="true"/>
+  <uses full="Illuminate\Bus\Queueable" namespace="Illuminate\Bus" name="Queueable" start="15" end="15" unresolved="true"/>
+  <uses full="Illuminate\Queue\SerializesModels" namespace="Illuminate\Queue" name="SerializesModels" start="15" end="15" unresolved="true"/>
+  <constructor name="__construct" start="17" end="22" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="handle" start="24" end="33" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="echo('Refreshing server IPs');" line="26"/>
+    </inline>
+  </method>
+</class>

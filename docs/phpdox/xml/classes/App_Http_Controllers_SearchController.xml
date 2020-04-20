@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Http\Controllers\SearchController" namespace="App\Http\Controllers" name="SearchController" abstract="false" final="false" start="11" end="73">
+  <file path="E:/GitHub/sMaSheD/app/Http/Controllers" file="SearchController.php" realpath="E:/GitHub/sMaSheD/app/Http/Controllers/SearchController.php" size="3074" time="2019-09-25T18:04:10+00:00" unixtime="1569434650" sha1="68ba1de66e259282a7437a380ebe312d058eaaf7" relative="Http/Controllers/SearchController.php"/>
+  <extends full="App\Http\Controllers\Controller" namespace="App\Http\Controllers" name="Controller"/>
+  <method name="index" start="13" end="16" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="query" start="18" end="72" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="request" byreference="false" type="object">
+      <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+    </parameter>
+  </method>
+  <parent full="App\Http\Controllers\Controller" namespace="App\Http\Controllers" name="Controller">
+    <extends full="Illuminate\Routing\Controller" namespace="Illuminate\Routing" name="Controller" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Auth\Access\AuthorizesRequests" namespace="Illuminate\Foundation\Auth\Access" name="AuthorizesRequests" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Bus\DispatchesJobs" namespace="Illuminate\Foundation\Bus" name="DispatchesJobs" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Validation\ValidatesRequests" namespace="Illuminate\Foundation\Validation" name="ValidatesRequests" unresolved="true"/>
+  </parent>
+</class>

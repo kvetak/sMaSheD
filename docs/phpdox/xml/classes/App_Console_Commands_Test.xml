@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Console\Commands\Test" namespace="App\Console\Commands" name="Test" abstract="false" final="false" start="7" end="42">
+  <file path="E:/GitHub/sMaSheD/app/Console/Commands" file="Test.php" realpath="E:/GitHub/sMaSheD/app/Console/Commands/Test.php" size="670" time="2019-09-25T18:04:10+00:00" unixtime="1569434650" sha1="5dd8b1ba0c47b89e859eef9ecf5c480fcb799db3" relative="Console/Commands/Test.php"/>
+  <extends full="Illuminate\Console\Command" namespace="Illuminate\Console" name="Command" unresolved="true"/>
+  <member name="signature" default="'command:name'" type="string" visibility="protected" static="false" line="14">
+    <docblock>
+      <description compact="The name and signature of the console command."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="description" default="'Command description'" type="string" visibility="protected" static="false" line="21">
+    <docblock>
+      <description compact="The console command description."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="28" end="31" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new command instance."/>
+      <return type="object">
+        <type full="App\Console\Commands\void" namespace="App\Console\Commands" name="void"/>
+      </return>
+    </docblock>
+  </constructor>
+  <method name="handle" start="38" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Execute the console command."/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+</class>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Http\Controllers\Auth\LoginController" namespace="App\Http\Controllers\Auth" name="LoginController" abstract="false" final="false" start="8" end="48">
+  <file path="E:/GitHub/sMaSheD/app/Http/Controllers/Auth" file="LoginController.php" realpath="E:/GitHub/sMaSheD/app/Http/Controllers/Auth/LoginController.php" size="1119" time="2019-09-25T18:04:11+00:00" unixtime="1569434651" sha1="cc10d7be09e0089c95dd4f790aa82b8f5a6c5512" relative="Http/Controllers/Auth/LoginController.php"/>
+  <extends full="App\Http\Controllers\Controller" namespace="App\Http\Controllers" name="Controller"/>
+  <uses full="Illuminate\Foundation\Auth\AuthenticatesUsers" namespace="Illuminate\Foundation\Auth" name="AuthenticatesUsers" start="21" end="21" unresolved="true"/>
+  <method name="username" start="27" end="30" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Overrides the default behavior to use the name of the user instead of email."/>
+    </docblock>
+  </method>
+  <member name="redirectTo" default="'/'" type="string" visibility="protected" static="false" line="37">
+    <docblock>
+      <description compact="Where to redirect users after login."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="44" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new controller instance."/>
+      <return type="object">
+        <type full="App\Http\Controllers\Auth\void" namespace="App\Http\Controllers\Auth" name="void"/>
+      </return>
+    </docblock>
+  </constructor>
+  <parent full="App\Http\Controllers\Controller" namespace="App\Http\Controllers" name="Controller">
+    <extends full="Illuminate\Routing\Controller" namespace="Illuminate\Routing" name="Controller" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Auth\Access\AuthorizesRequests" namespace="Illuminate\Foundation\Auth\Access" name="AuthorizesRequests" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Bus\DispatchesJobs" namespace="Illuminate\Foundation\Bus" name="DispatchesJobs" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Validation\ValidatesRequests" namespace="Illuminate\Foundation\Validation" name="ValidatesRequests" unresolved="true"/>
+  </parent>
+</class>

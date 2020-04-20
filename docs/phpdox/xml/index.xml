@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index xmlns="http://xml.phpdox.net/src" basedir="E:/GitHub/sMaSheD/app">
+  <namespace name="App">
+    <class name="Address" src="Address.php" xml="classes/App_Address.xml"/>
+    <class name="Crypto" src="Crypto.php" xml="classes/App_Crypto.xml"/>
+    <class name="History" src="History.php" xml="classes/App_History.xml"/>
+    <class name="MiningProp" src="MiningProp.php" xml="classes/App_MiningProp.xml"/>
+    <class name="Pool" src="Pool.php" xml="classes/App_Pool.xml"/>
+    <class name="Port" src="Port.php" xml="classes/App_Port.xml"/>
+    <class name="Server" src="Server.php" xml="classes/App_Server.xml"/>
+    <class name="User" src="User.php" xml="classes/App_User.xml"/>
+  </namespace>
+  <namespace name="App\Console\Commands">
+    <class name="Test" src="Console/Commands/Test.php" xml="classes/App_Console_Commands_Test.xml"/>
+  </namespace>
+  <namespace name="App\Console">
+    <class name="Kernel" src="Console/Kernel.php" xml="classes/App_Console_Kernel.xml"/>
+  </namespace>
+  <namespace name="App\Exceptions">
+    <class name="Handler" src="Exceptions/Handler.php" xml="classes/App_Exceptions_Handler.xml"/>
+  </namespace>
+  <namespace name="App\Http\Controllers">
+    <class name="AddressController" src="Http/Controllers/AddressController.php" xml="classes/App_Http_Controllers_AddressController.xml"/>
+    <class name="Controller" src="Http/Controllers/Controller.php" xml="classes/App_Http_Controllers_Controller.xml"/>
+    <class name="CryptoController" src="Http/Controllers/CryptoController.php" xml="classes/App_Http_Controllers_CryptoController.xml"/>
+    <class name="DashboardController" src="Http/Controllers/DashboardController.php" xml="classes/App_Http_Controllers_DashboardController.xml"/>
+    <class name="MiningPropController" src="Http/Controllers/MiningPropController.php" xml="classes/App_Http_Controllers_MiningPropController.xml"/>
+    <class name="PoolController" src="Http/Controllers/PoolController.php" xml="classes/App_Http_Controllers_PoolController.xml"/>
+    <class name="PortController" src="Http/Controllers/PortController.php" xml="classes/App_Http_Controllers_PortController.xml"/>
+    <class name="SearchController" src="Http/Controllers/SearchController.php" xml="classes/App_Http_Controllers_SearchController.xml"/>
+    <class name="ServerController" src="Http/Controllers/ServerController.php" xml="classes/App_Http_Controllers_ServerController.xml"/>
+  </namespace>
+  <namespace name="App\Http\Controllers\Auth">
+    <class name="ForgotPasswordController" src="Http/Controllers/Auth/ForgotPasswordController.php" xml="classes/App_Http_Controllers_Auth_ForgotPasswordController.xml"/>
+    <class name="LoginController" src="Http/Controllers/Auth/LoginController.php" xml="classes/App_Http_Controllers_Auth_LoginController.xml"/>
+    <class name="RegisterController" src="Http/Controllers/Auth/RegisterController.php" xml="classes/App_Http_Controllers_Auth_RegisterController.xml"/>
+    <class name="ResetPasswordController" src="Http/Controllers/Auth/ResetPasswordController.php" xml="classes/App_Http_Controllers_Auth_ResetPasswordController.xml"/>
+    <class name="VerificationController" src="Http/Controllers/Auth/VerificationController.php" xml="classes/App_Http_Controllers_Auth_VerificationController.xml"/>
+  </namespace>
+  <namespace name="App\Http">
+    <class name="Kernel" src="Http/Kernel.php" xml="classes/App_Http_Kernel.xml"/>
+  </namespace>
+  <namespace name="App\Http\Middleware">
+    <class name="Authenticate" src="Http/Middleware/Authenticate.php" xml="classes/App_Http_Middleware_Authenticate.xml"/>
+    <class name="CheckForMaintenanceMode" src="Http/Middleware/CheckForMaintenanceMode.php" xml="classes/App_Http_Middleware_CheckForMaintenanceMode.xml"/>
+    <class name="EncryptCookies" src="Http/Middleware/EncryptCookies.php" xml="classes/App_Http_Middleware_EncryptCookies.xml"/>
+    <class name="RedirectIfAuthenticated" src="Http/Middleware/RedirectIfAuthenticated.php" xml="classes/App_Http_Middleware_RedirectIfAuthenticated.xml"/>
+    <class name="TrimStrings" src="Http/Middleware/TrimStrings.php" xml="classes/App_Http_Middleware_TrimStrings.xml"/>
+    <class name="TrustProxies" src="Http/Middleware/TrustProxies.php" xml="classes/App_Http_Middleware_TrustProxies.xml"/>
+    <class name="VerifyCsrfToken" src="Http/Middleware/VerifyCsrfToken.php" xml="classes/App_Http_Middleware_VerifyCsrfToken.xml"/>
+  </namespace>
+  <namespace name="App\Jobs">
+    <class name="RefreshMiningProperties" src="Jobs/RefreshMiningProperties.php" xml="classes/App_Jobs_RefreshMiningProperties.xml"/>
+    <class name="RefreshServers" src="Jobs/RefreshServers.php" xml="classes/App_Jobs_RefreshServers.xml"/>
+  </namespace>
+  <namespace name="App\Providers">
+    <class name="AppServiceProvider" src="Providers/AppServiceProvider.php" xml="classes/App_Providers_AppServiceProvider.xml"/>
+    <class name="AuthServiceProvider" src="Providers/AuthServiceProvider.php" xml="classes/App_Providers_AuthServiceProvider.xml"/>
+    <class name="BroadcastServiceProvider" src="Providers/BroadcastServiceProvider.php" xml="classes/App_Providers_BroadcastServiceProvider.xml"/>
+    <class name="EventServiceProvider" src="Providers/EventServiceProvider.php" xml="classes/App_Providers_EventServiceProvider.xml"/>
+    <class name="RouteServiceProvider" src="Providers/RouteServiceProvider.php" xml="classes/App_Providers_RouteServiceProvider.xml"/>
+  </namespace>
+  <namespace name="App\Services">
+    <class name="RefreshService" src="Services/RefreshService.php" xml="classes/App_Services_RefreshService.xml"/>
+  </namespace>
+</index>

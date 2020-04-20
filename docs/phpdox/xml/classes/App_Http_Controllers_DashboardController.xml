@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Http\Controllers\DashboardController" namespace="App\Http\Controllers" name="DashboardController" abstract="false" final="false" start="11" end="90">
+  <file path="E:/GitHub/sMaSheD/app/Http/Controllers" file="DashboardController.php" realpath="E:/GitHub/sMaSheD/app/Http/Controllers/DashboardController.php" size="3310" time="2019-09-25T18:04:10+00:00" unixtime="1569434650" sha1="69b127f3d274b7c7b738295288b3ade9cabd1424" relative="Http/Controllers/DashboardController.php"/>
+  <extends full="App\Http\Controllers\Controller" namespace="App\Http\Controllers" name="Controller"/>
+  <method name="index" start="13" end="89" abstract="false" final="false" static="false" visibility="public"/>
+  <parent full="App\Http\Controllers\Controller" namespace="App\Http\Controllers" name="Controller">
+    <extends full="Illuminate\Routing\Controller" namespace="Illuminate\Routing" name="Controller" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Auth\Access\AuthorizesRequests" namespace="Illuminate\Foundation\Auth\Access" name="AuthorizesRequests" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Bus\DispatchesJobs" namespace="Illuminate\Foundation\Bus" name="DispatchesJobs" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Validation\ValidatesRequests" namespace="Illuminate\Foundation\Validation" name="ValidatesRequests" unresolved="true"/>
+  </parent>
+</class>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Services\RefreshService" namespace="App\Services" name="RefreshService" abstract="false" final="false" start="7" end="536">
+  <file path="E:/GitHub/sMaSheD/app/Services" file="RefreshService.php" realpath="E:/GitHub/sMaSheD/app/Services/RefreshService.php" size="14984" time="2019-09-25T18:04:12+00:00" unixtime="1569434652" sha1="b4ec7f2479bdb3d826406356a5f6f84a812fc06c" relative="Services/RefreshService.php"/>
+  <method name="parse_JSON" start="10" end="71" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="msg" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="echo $msg;" line="12"/>
+      <comment value="convert strings to JSON" line="29"/>
+    </inline>
+  </method>
+  <method name="checkErrorMessage" start="74" end="89" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="msg" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="definition of false positive messages" line="76"/>
+    </inline>
+  </method>
+  <method name="checkResponse" start="92" end="210" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="parsed" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="process every message individually" line="103"/>
+    </inline>
+  </method>
+  <method name="sentTcpRequest" start="213" end="243" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="socket" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="connectToServer" start="246" end="261" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="connection" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="connection timeout" line="249"/>
+      <comment value="unreachable" line="258"/>
+    </inline>
+  </method>
+  <method name="miningProbeStratum" start="270" end="381" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Run active probe for Stratum mining protocol."/>
+      <param variable="$port" type="object">
+        <type full="App\Services\$address" namespace="App\Services" name="$address"/>
+      </param>
+      <return description="of results (reason and code)" type="object">
+        <type full="App\Services\list" namespace="App\Services" name="list"/>
+      </return>
+    </docblock>
+    <parameter name="port" byreference="false" type="{unknown}"/>
+    <parameter name="address" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="client configuration parameters" line="273"/>
+      <comment value="default for stratum is Bitcoin" line="274"/>
+      <comment value="used protocol methods --&gt; first approach" line="280"/>
+      <comment value="$methods = [" line="281"/>
+      <comment value="&quot;mining.subscribe&quot; =&gt; ['Miner 1.0']," line="282"/>
+      <comment value="&quot;login&quot; =&gt; ['login' =&gt; 'test.worker1', 'pass' =&gt; 'password', 'agent' =&gt; 'xmr/1.0']," line="283"/>
+      <comment value="&quot;mining.authorize&quot; =&gt; ['Bitcoin', 'x']," line="284"/>
+      <comment value="&quot;eth_getWork&quot; =&gt; []," line="285"/>
+      <comment value="&quot;getblocktemplate&quot; = array()," line="286"/>
+      <comment value="&quot;getwork&quot; =&gt; array()" line="287"/>
+      <comment value="];" line="288"/>
+      <comment value="used protocol methods --&gt; second approach" line="291"/>
+    </inline>
+  </method>
+  <method name="miningProbeGetblocktemplate" start="390" end="485" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Run active probe for Getblocktemplate mining protocol."/>
+      <param variable="$port" type="object">
+        <type full="App\Services\$address" namespace="App\Services" name="$address"/>
+      </param>
+      <return description="of results (reason and code)" type="object">
+        <type full="App\Services\list" namespace="App\Services" name="list"/>
+      </return>
+    </docblock>
+    <parameter name="port" byreference="false" type="{unknown}"/>
+    <parameter name="address" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="create JSON-RPC message" line="397"/>
+      <comment value="$data = [" line="398"/>
+      <comment value="'id' =&gt; 1," line="399"/>
+      <comment value="'method' =&gt; 'getblocktemplate'," line="400"/>
+      <comment value="'params' =&gt; [array(&quot;capabilities&quot; =&gt; array(&quot;coinbasetxn&quot;, &quot;workid&quot;, &quot;coinbase/append&quot;))]" line="401"/>
+      <comment value="];" line="402"/>
+      <comment value="$encodedData = json_encode($data);" line="403"/>
+      <comment value="define message" line="405"/>
+      <comment value="use CURL to send HTTP request" line="408"/>
+      <comment value="configure request parameters" line="411"/>
+      <comment value="if auth" line="418"/>
+      <comment value="execute request" line="428"/>
+      <comment value="decode response message" line="431"/>
+    </inline>
+  </method>
+  <method name="miningProbeGetwork" start="487" end="492" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="port" byreference="false" type="{unknown}"/>
+    <parameter name="address" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="for futer implementation" line="489"/>
+    </inline>
+  </method>
+  <method name="addHistoryRecord" start="495" end="503" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="miningPropId" byreference="false" type="{unknown}"/>
+    <parameter name="status" byreference="false" type="{unknown}"/>
+    <parameter name="timestamp" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addMiningPropRecord" start="506" end="519" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="serverId" byreference="false" type="{unknown}"/>
+    <parameter name="address" byreference="false" type="{unknown}"/>
+    <parameter name="port" byreference="false" type="{unknown}"/>
+    <parameter name="protocol" byreference="false" type="{unknown}"/>
+    <parameter name="status" byreference="false" type="{unknown}"/>
+    <parameter name="timestamp" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="clearMiningProp" start="522" end="527" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="clearHistory" start="530" end="535" abstract="false" final="false" static="false" visibility="public"/>
+</class>

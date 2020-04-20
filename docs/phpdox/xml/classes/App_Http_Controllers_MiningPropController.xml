@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Http\Controllers\MiningPropController" namespace="App\Http\Controllers" name="MiningPropController" abstract="false" final="false" start="14" end="138">
+  <file path="E:/GitHub/sMaSheD/app/Http/Controllers" file="MiningPropController.php" realpath="E:/GitHub/sMaSheD/app/Http/Controllers/MiningPropController.php" size="3610" time="2019-09-25T18:04:10+00:00" unixtime="1569434650" sha1="54824a9d23da40fbad351a73d9bd782f5ee6453d" relative="Http/Controllers/MiningPropController.php"/>
+  <extends full="App\Http\Controllers\Controller" namespace="App\Http\Controllers" name="Controller"/>
+  <member name="service" visibility="private" static="false" line="16"/>
+  <constructor name="__construct" start="18" end="22" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="service" byreference="false" type="object">
+      <type full="App\Services\RefreshService" namespace="App\Services" name="RefreshService"/>
+    </parameter>
+  </constructor>
+  <method name="index" start="30" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Display a listing of the resource."/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+    </parameter>
+    <inline>
+      <comment value="dd($request);" line="32"/>
+      <comment value="default pagination" line="38"/>
+      <comment value="$miningProps = MiningProp::paginate(30);" line="39"/>
+    </inline>
+  </method>
+  <method name="show" start="51" end="60" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Display the specified resource."/>
+      <param type="int" variable="$id"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="$miningProps = MiningProp::paginate(30);" line="53"/>
+      <comment value="$history = History::where('miningProp_id', $id)-&gt;get();" line="56"/>
+    </inline>
+  </method>
+  <method name="refresh" start="67" end="73" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Refresh mining properties status"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <inline>
+      <comment value="dispatch job RefreshMiningProperties" line="69"/>
+    </inline>
+  </method>
+  <method name="clear" start="80" end="87" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove the resources from storage."/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <inline>
+      <comment value="History::truncate();" line="84"/>
+      <comment value="MiningProp::truncate();" line="85"/>
+    </inline>
+  </method>
+  <method name="historyClear" start="95" end="103" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove the specified resource from storage.">Keeps last record in resource.</description>
+      <param type="int" variable="$miningPropId"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="miningPropId" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="json" start="110" end="114" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Display database entries in json format"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="jsonHistory" start="121" end="125" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Display specific database entries in json format"/>
+      <param type="int" variable="$id"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="jsonHistoryAll" start="132" end="137" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Display database entries in json format"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+  </method>
+  <parent full="App\Http\Controllers\Controller" namespace="App\Http\Controllers" name="Controller">
+    <extends full="Illuminate\Routing\Controller" namespace="Illuminate\Routing" name="Controller" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Auth\Access\AuthorizesRequests" namespace="Illuminate\Foundation\Auth\Access" name="AuthorizesRequests" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Bus\DispatchesJobs" namespace="Illuminate\Foundation\Bus" name="DispatchesJobs" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Validation\ValidatesRequests" namespace="Illuminate\Foundation\Validation" name="ValidatesRequests" unresolved="true"/>
+  </parent>
+</class>

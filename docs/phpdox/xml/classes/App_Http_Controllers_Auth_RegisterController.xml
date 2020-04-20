@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Http\Controllers\Auth\RegisterController" namespace="App\Http\Controllers\Auth" name="RegisterController" abstract="false" final="false" start="10" end="71">
+  <file path="E:/GitHub/sMaSheD/app/Http/Controllers/Auth" file="RegisterController.php" realpath="E:/GitHub/sMaSheD/app/Http/Controllers/Auth/RegisterController.php" size="1812" time="2019-09-25T18:04:11+00:00" unixtime="1569434651" sha1="672016818fe986ed46a5a8d2c9bc629da8b4d69d" relative="Http/Controllers/Auth/RegisterController.php"/>
+  <extends full="App\Http\Controllers\Controller" namespace="App\Http\Controllers" name="Controller"/>
+  <uses full="Illuminate\Foundation\Auth\RegistersUsers" namespace="Illuminate\Foundation\Auth" name="RegistersUsers" start="23" end="23" unresolved="true"/>
+  <member name="redirectTo" default="'/home'" type="string" visibility="protected" static="false" line="30">
+    <docblock>
+      <description compact="Where to redirect users after registration."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="37" end="40" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new controller instance."/>
+      <return type="object">
+        <type full="App\Http\Controllers\Auth\void" namespace="App\Http\Controllers\Auth" name="void"/>
+      </return>
+    </docblock>
+  </constructor>
+  <method name="validator" start="48" end="55" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get a validator for an incoming registration request."/>
+      <param type="array" variable="$data"/>
+      <return type="object">
+        <type full="\Illuminate\Contracts\Validation\Validator" namespace="\Illuminate\Contracts\Validation" name="Validator"/>
+      </return>
+    </docblock>
+    <parameter name="data" byreference="false" type="array"/>
+  </method>
+  <method name="create" start="63" end="70" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Create a new user instance after a valid registration."/>
+      <param type="array" variable="$data"/>
+      <return type="object">
+        <type full="App\User" namespace="App" name="User"/>
+      </return>
+    </docblock>
+    <parameter name="data" byreference="false" type="array"/>
+  </method>
+  <parent full="App\Http\Controllers\Controller" namespace="App\Http\Controllers" name="Controller">
+    <extends full="Illuminate\Routing\Controller" namespace="Illuminate\Routing" name="Controller" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Auth\Access\AuthorizesRequests" namespace="Illuminate\Foundation\Auth\Access" name="AuthorizesRequests" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Bus\DispatchesJobs" namespace="Illuminate\Foundation\Bus" name="DispatchesJobs" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Validation\ValidatesRequests" namespace="Illuminate\Foundation\Validation" name="ValidatesRequests" unresolved="true"/>
+  </parent>
+</class>

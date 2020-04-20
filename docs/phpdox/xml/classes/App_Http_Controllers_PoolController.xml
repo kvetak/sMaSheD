@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Http\Controllers\PoolController" namespace="App\Http\Controllers" name="PoolController" abstract="false" final="false" start="8" end="157">
+  <file path="E:/GitHub/sMaSheD/app/Http/Controllers" file="PoolController.php" realpath="E:/GitHub/sMaSheD/app/Http/Controllers/PoolController.php" size="3430" time="2019-09-25T18:04:10+00:00" unixtime="1569434650" sha1="d97ad4507b38bfc2ae94f6aa42b9b9f30456d4fa" relative="Http/Controllers/PoolController.php"/>
+  <extends full="App\Http\Controllers\Controller" namespace="App\Http\Controllers" name="Controller"/>
+  <constructor name="__construct" start="10" end="13" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="index" start="20" end="24" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Display a listing of the resource."/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="create" start="31" end="34" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Show the form for creating a new resource."/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="store" start="42" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Store a newly created resource in storage."/>
+      <param type="object" variable="$request">
+        <type full="\Illuminate\Http\Request" namespace="\Illuminate\Http" name="Request"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+    </parameter>
+  </method>
+  <method name="show" start="67" end="71" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Display the specified resource."/>
+      <param type="int" variable="$id"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="edit" start="79" end="83" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Show the form for editing the specified resource."/>
+      <param type="int" variable="$id"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="update" start="92" end="109" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Update the specified resource in storage."/>
+      <param type="object" variable="$request">
+        <type full="\Illuminate\Http\Request" namespace="\Illuminate\Http" name="Request"/>
+      </param>
+      <param type="int" variable="$id"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+    </parameter>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="destroy" start="117" end="125" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove the specified resource from storage."/>
+      <param type="int" variable="$id"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="assignFromRequest" start="131" end="135" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="object" variable="$request">
+        <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+      </param>
+      <param variable="$pool"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+    </parameter>
+    <parameter name="pool" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="json" start="143" end="156" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Display database entries in json format"/>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <inline>
+      <comment value="$poolsJson = $pools-&gt;toJson();" line="147"/>
+      <comment value="$poolsJson = [];" line="148"/>
+      <comment value="foreach ($pools as $pool)" line="149"/>
+      <comment value="{" line="150"/>
+      <comment value="$poolsJson[] = $pool-&gt;toJson();" line="151"/>
+      <comment value="}" line="152"/>
+      <comment value="return view('pools.json', compact('poolsJson'));" line="153"/>
+    </inline>
+  </method>
+  <parent full="App\Http\Controllers\Controller" namespace="App\Http\Controllers" name="Controller">
+    <extends full="Illuminate\Routing\Controller" namespace="Illuminate\Routing" name="Controller" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Auth\Access\AuthorizesRequests" namespace="Illuminate\Foundation\Auth\Access" name="AuthorizesRequests" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Bus\DispatchesJobs" namespace="Illuminate\Foundation\Bus" name="DispatchesJobs" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Validation\ValidatesRequests" namespace="Illuminate\Foundation\Validation" name="ValidatesRequests" unresolved="true"/>
+  </parent>
+</class>

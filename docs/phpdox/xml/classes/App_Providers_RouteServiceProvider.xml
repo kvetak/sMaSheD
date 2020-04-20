@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Providers\RouteServiceProvider" namespace="App\Providers" name="RouteServiceProvider" abstract="false" final="false" start="8" end="73">
+  <file path="E:/GitHub/sMaSheD/app/Providers" file="RouteServiceProvider.php" realpath="E:/GitHub/sMaSheD/app/Providers/RouteServiceProvider.php" size="1602" time="2019-09-25T18:04:12+00:00" unixtime="1569434652" sha1="96ead6b79b6a838681ceb3e8bd3dd3abcdf8face" relative="Providers/RouteServiceProvider.php"/>
+  <extends full="Illuminate\Foundation\Support\Providers\RouteServiceProvider" namespace="Illuminate\Foundation\Support\Providers" name="RouteServiceProvider" unresolved="true"/>
+  <member name="namespace" default="'App\Http\Controllers'" type="string" visibility="protected" static="false" line="17">
+    <docblock>
+      <description compact="This namespace is applied to your controller routes.">In addition, it is set as the URL generator's root namespace.</description>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <method name="boot" start="24" end="29" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Define your route model bindings, pattern filters, etc."/>
+      <return type="object">
+        <type full="App\Providers\void" namespace="App\Providers" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="map" start="36" end="43" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Define the routes for the application."/>
+      <return type="object">
+        <type full="App\Providers\void" namespace="App\Providers" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="mapWebRoutes" start="52" end="57" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Define the &quot;web&quot; routes for the application.">These routes all receive session state, CSRF protection, etc.</description>
+      <return type="object">
+        <type full="App\Providers\void" namespace="App\Providers" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="mapApiRoutes" start="66" end="72" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Define the &quot;api&quot; routes for the application.">These routes are typically stateless.</description>
+      <return type="object">
+        <type full="App\Providers\void" namespace="App\Providers" name="void"/>
+      </return>
+    </docblock>
+  </method>
+</class>

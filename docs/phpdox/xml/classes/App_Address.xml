@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Address" namespace="App" name="Address" abstract="false" final="false" start="7" end="21">
+  <file path="E:/GitHub/sMaSheD/app" file="Address.php" realpath="E:/GitHub/sMaSheD/app/Address.php" size="309" time="2019-09-25T18:04:09+00:00" unixtime="1569434649" sha1="626b2a53e4d6f3b48bccadea0e9b346daf3e41db" relative="Address.php"/>
+  <extends full="Illuminate\Database\Eloquent\Model" namespace="Illuminate\Database\Eloquent" name="Model" unresolved="true"/>
+  <member name="table" default="'addresses'" type="string" visibility="protected" static="false" line="14">
+    <docblock>
+      <description compact="The table associated with the model."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <method name="server" start="16" end="19" abstract="false" final="false" static="false" visibility="public"/>
+</class>

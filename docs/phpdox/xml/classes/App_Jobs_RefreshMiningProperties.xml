@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Jobs\RefreshMiningProperties" namespace="App\Jobs" name="RefreshMiningProperties" abstract="false" final="false" start="18" end="119">
+  <file path="E:/GitHub/sMaSheD/app/Jobs" file="RefreshMiningProperties.php" realpath="E:/GitHub/sMaSheD/app/Jobs/RefreshMiningProperties.php" size="3884" time="2019-09-25T18:04:12+00:00" unixtime="1569434652" sha1="744e57ec84fe11401b17b026f30c76303b56b5e7" relative="Jobs/RefreshMiningProperties.php"/>
+  <implements full="Illuminate\Contracts\Queue\ShouldQueue" namespace="Illuminate\Contracts\Queue" name="ShouldQueue" unresolved="true"/>
+  <uses full="Illuminate\Foundation\Bus\Dispatchable" namespace="Illuminate\Foundation\Bus" name="Dispatchable" start="20" end="20" unresolved="true"/>
+  <uses full="Illuminate\Queue\InteractsWithQueue" namespace="Illuminate\Queue" name="InteractsWithQueue" start="20" end="20" unresolved="true"/>
+  <uses full="Illuminate\Bus\Queueable" namespace="Illuminate\Bus" name="Queueable" start="20" end="20" unresolved="true"/>
+  <uses full="Illuminate\Queue\SerializesModels" namespace="Illuminate\Queue" name="SerializesModels" start="20" end="20" unresolved="true"/>
+  <member name="data" visibility="private" static="false" line="22"/>
+  <member name="service" visibility="private" static="false" line="23"/>
+  <constructor name="__construct" start="30" end="33" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new job instance."/>
+      <return type="object">
+        <type full="App\Jobs\void" namespace="App\Jobs" name="void"/>
+      </return>
+    </docblock>
+  </constructor>
+  <method name="handle" start="40" end="118" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Execute the job."/>
+      <return type="object">
+        <type full="App\Jobs\void" namespace="App\Jobs" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="service" byreference="false" type="object">
+      <type full="App\Services\RefreshService" namespace="App\Services" name="RefreshService"/>
+    </parameter>
+    <inline>
+      <comment value="init service" line="42"/>
+      <comment value="select matching data based on server ID from tables servers, miningProperties, addresses" line="45"/>
+      <comment value="define protocols" line="53"/>
+      <comment value="for every record" line="57"/>
+    </inline>
+  </method>
+</class>

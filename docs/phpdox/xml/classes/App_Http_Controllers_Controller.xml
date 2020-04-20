@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="App\Http\Controllers\Controller" namespace="App\Http\Controllers" name="Controller" abstract="false" final="false" start="10" end="13">
+  <file path="E:/GitHub/sMaSheD/app/Http/Controllers" file="Controller.php" realpath="E:/GitHub/sMaSheD/app/Http/Controllers/Controller.php" size="374" time="2019-09-25T18:04:10+00:00" unixtime="1569434650" sha1="6f3a21b56adaba3ff695fe07c0878c8c6fa8186f" relative="Http/Controllers/Controller.php"/>
+  <extends full="Illuminate\Routing\Controller" namespace="Illuminate\Routing" name="Controller" unresolved="true"/>
+  <uses full="Illuminate\Foundation\Auth\Access\AuthorizesRequests" namespace="Illuminate\Foundation\Auth\Access" name="AuthorizesRequests" start="12" end="12" unresolved="true"/>
+  <uses full="Illuminate\Foundation\Bus\DispatchesJobs" namespace="Illuminate\Foundation\Bus" name="DispatchesJobs" start="12" end="12" unresolved="true"/>
+  <uses full="Illuminate\Foundation\Validation\ValidatesRequests" namespace="Illuminate\Foundation\Validation" name="ValidatesRequests" start="12" end="12" unresolved="true"/>
+  <extenders>
+    <extender full="App\Http\Controllers\AddressController" namespace="App\Http\Controllers" name="AddressController"/>
+    <extender full="App\Http\Controllers\Auth\ForgotPasswordController" namespace="App\Http\Controllers\Auth" name="ForgotPasswordController"/>
+    <extender full="App\Http\Controllers\Auth\LoginController" namespace="App\Http\Controllers\Auth" name="LoginController"/>
+    <extender full="App\Http\Controllers\Auth\RegisterController" namespace="App\Http\Controllers\Auth" name="RegisterController"/>
+    <extender full="App\Http\Controllers\Auth\ResetPasswordController" namespace="App\Http\Controllers\Auth" name="ResetPasswordController"/>
+    <extender full="App\Http\Controllers\Auth\VerificationController" namespace="App\Http\Controllers\Auth" name="VerificationController"/>
+    <extender full="App\Http\Controllers\CryptoController" namespace="App\Http\Controllers" name="CryptoController"/>
+    <extender full="App\Http\Controllers\DashboardController" namespace="App\Http\Controllers" name="DashboardController"/>
+    <extender full="App\Http\Controllers\MiningPropController" namespace="App\Http\Controllers" name="MiningPropController"/>
+    <extender full="App\Http\Controllers\PoolController" namespace="App\Http\Controllers" name="PoolController"/>
+    <extender full="App\Http\Controllers\PortController" namespace="App\Http\Controllers" name="PortController"/>
+    <extender full="App\Http\Controllers\SearchController" namespace="App\Http\Controllers" name="SearchController"/>
+    <extender full="App\Http\Controllers\ServerController" namespace="App\Http\Controllers" name="ServerController"/>
+  </extenders>
+</class>

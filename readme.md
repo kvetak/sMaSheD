@@ -28,7 +28,7 @@ sMaSheD is a web application written in PHP with the help of the Laravel framewo
 
 * PHP 7.1.3
 * Laravel 5.8
-* PostgreSQL 12
+* MariaDB 10.5
 
 ## Installation guideline
 sMaSheD web application source codes are available in the following [GitHub repository folder](https://github.com/kvetak/sMaSheD). Deployment of JANE sMaSheD module can be cloned via [Git repository](https://github.com/nesfit/jane-smashed).
@@ -71,7 +71,7 @@ curl -fsSL https://raw.githubusercontent.com/MatchbookLab/local-persist/master/s
 ```
 
 ### Deployment
-sMaSheD consists of two containers - Laravel 5.8 web application and nginx 1.10 HTTP server. In order to deploy DeMixer on your server:
+sMaSheD consists of three containers - Laravel 5.8 web application, nginx 1.19.1 HTTP server and MariaDB 10.5 database. In order to deploy sMaSheD on your server:
 
 1. clone sMaSheD repository `git clone https://github.com/nesfit/jane-smashed`
 
@@ -79,27 +79,20 @@ sMaSheD consists of two containers - Laravel 5.8 web application and nginx 1.10 
 
 3. specify in `.env` public port on which sMaSheD will be available and existing virtual network name nano .env
 ```
+LOCAL_VOLUME_MOUNT_POINT=</path/to/volumes>
 NETWORK=<docker_network>
-HTTP_PORT=<public_port>
-```
-4. copy web application environmental variables file 
-`cp ./demixer/.env.example ./demixer/.env`
+HTTP_PORT=<public http port>
 
-5. specify in `./demixer/.env` following parameters (where for Bitcoin/Litecoin clients you may consider to deploy JANE [cryptoclients module](https://github.com/nesfit/jane-cryptoclients/))
-```
-CLUSTER_CLIENT=<DeMixer compatible cluster provider>
-BTC_CORE_HOSTNAME=<host running official Bitcoin client>
-BTC_CORE_PORT=<port for RPC calls>
-BTC_CORE_USERNAME=<Bitcoin client RPC username>
-BTC_CORE_PASSWORD=<Bitcoin client RPC password>
-LTC_CORE_HOSTNAME=<host running official Litecoin client>
-LTC_CORE_PORT=<port for RPC calls>
-LTC_CORE_USERNAME=<Litecoin client RPC username>
-LTC_CORE_PASSWORD=<Litecoin client RPC password>
-```
-6. pull containers from [Docker hub repository](https://hub.docker.com/repository/docker/nesatfit/demix-app) `docker-compose pull`
+MARIADB_ROOT_PASSWORD=<db_rootpass>
+MARIADB_DATABASE=<db_name>
+MARIADB_USER=<db_user>
+MARIADB_PASSWORD=<db_pass>
 
-7. optionally build web application locally `docker-compose build demix-app`
+```
+
+6. pull containers from [Docker hub repository](https://hub.docker.com/repository/docker/nesatfit/smashed) `docker-compose pull`
+
+7. optionally build web application locally `docker-compose build`
 
 8. run containers `docker-compose up -d`
 

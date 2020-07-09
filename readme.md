@@ -1,10 +1,12 @@
-# sMaSheD - Mininge Server Detector
+# sMaSheD - Mining Server Detector
 ## Introduction
-Any organization should be aware of running mining software on its hardware in its network due to at least two reasons: a) the mining activity is often caused by malware, therefore, the mining activity is an indicator of a compromise; b) the energy (e.g., electricity, cooling, CPU and GPU power) spent on mining is paid by the hosting organization, but the recipient of the reward is a malicious actor. Universities or technological centers are typical examples of energy exploitation because they offer free computational resources (i.e., servers, network) to academics, researchers and students. Nevertheless, it is possible to start a mining operation in any organization. The malicious actor might exploit these assets resulting in an increased energy bill, depleted resources, endangered work processes, services and other users. Cryptocurrency mining is the only option how users may obtain freshly minted currency units. Moreover, mining is still the prevailing form of how to earn cryptorcurrencies with the existing equipment. 
-
 Both mining server’s hostname and port number are publicly available (except mining malware cases) on pool’s webpage because they are necessary for successful setup of the mining process. Without this vital information, the miner would not be able to configure mining software properly. 
 
 Based on these premises, we have decided to manually collect all mining software configurations announced by the biggest mining pools for several important cryptocurrencies. We gathered all these data in a database, which is accessible through a web application called sMaSheD (Mining Server Detector of cryptocurrency pools). Any user may query our system to check whether a given FQDN, IP address or port number is a part of known pool configuration. Moreover, this system monitors availability of mining service on known pools.
+
+![sMaSheD demo](https://github.com/kvetak/sMaSheD/raw/master/docs/smashed.gif)
+
+Any organization should be aware of running mining software on its hardware in its network due to at least two reasons: a) the mining activity is often caused by malware, therefore, the mining activity is an indicator of a compromise; b) the energy (e.g., electricity, cooling, CPU and GPU power) spent on mining is paid by the hosting organization, but the recipient of the reward is a malicious actor. Universities or technological centers are typical examples of energy exploitation because they offer free computational resources (i.e., servers, network) to academics, researchers and students. Nevertheless, it is possible to start a mining operation in any organization. The malicious actor might exploit these assets resulting in an increased energy bill, depleted resources, endangered work processes, services and other users. Cryptocurrency mining is the only option how users may obtain freshly minted currency units. Moreover, mining is still the prevailing form of how to earn cryptorcurrencies with the existing equipment. 
 
 ### JANE Framework
 This application is one of the modules of the JANE platform, which offers various mission-specific tools intended for digital forensics of computer networks. JANE follows microservice architecture and offers few containerized modules such as:
@@ -181,10 +183,41 @@ The system consists of the following views:
 * *Servers* - management of pool servers (e.g., their fully-qualified domain names, IP addresses, open ports for a given cryptocurrency mining service);
 * *Ports* - management of ports assigned to particular server and cryptocurrency;
 * *Addresses* - management of all IP addresses resolved from FQDNs of servers;
-* *Mining properties* - management of all probes checking the availability of mining operation service on a given IPs (and belonging servers).
+* *Mining Properties* - management of all probes checking the availability of mining operation service on a given IPs (and belonging servers).
 
 ### Operation
+The web application is designed to have multiple screens. The first screen is Main page, where anyone (even not a logged user) may search the catalog for FQDN or IP address. If input exists in the database, then information about that particular server is returned to the user.
 
+![Main page](https://github.com/kvetak/sMaSheD/raw/master/docs/s1.png)
+
+Dashboard show aggregated statistics about all resources within the system.
+
+![Dashboard page](https://github.com/kvetak/sMaSheD/raw/master/docs/s2.png)
+
+Following next are dedicated views for every resource within the system: pools, cryptos, servers, ports, and addresses. A single pool may operate multiple servers. A fully-qualified domain name recognizes the server, and numerous mining operations can run on different ports. There may be more than an IP address assigned to a server FQDN.
+
+Each resource can be managed via control buttons:
+* create button accompanying form for creating;
+* pencil for updating (the dedicated view is displayed);
+* trashbin for deleting (beware that no confirmation is needed);
+
+A collection of resources is displayed in the data table that allows sorting and filtering according to resource properties. Detail of every resource can be shown in a separate view using a unique resource id. 
+
+Moreover, the server resource view is equipped with a red button called "Refresh IPs" that will resolve and update IP addresses belonging to all FQDN servers in the system.
+
+![Resource page](https://github.com/kvetak/sMaSheD/raw/master/docs/s3.png)
+
+Full collection of any resource may be obtained via the teal "JSON" button (in JSON form), which allows further integration of catalog data with 3rd party applications.
+
+![JSON export](https://github.com/kvetak/sMaSheD/raw/master/docs/s4.png)
+
+The most exciting part from the forensic point of view is the Mining Properties page. It contains existing probes within the system for each IP-port pair for every server in the system. sMaSheD dispatches these probes every 3 hours to determine any changes in mining operation status. If it is necessary, probes can be dispatched ad hoc by clicking on red button "Dispatch probing".
+
+![MiningProps page](https://github.com/kvetak/sMaSheD/raw/master/docs/s5.png)
+
+Before every run, FQDNs are automatically resolved via DNS to find any new IP addresses belonging to servers. Return codes of every probe are chronologically stored in the database and available retrospectively.
+
+![Probe results](https://github.com/kvetak/sMaSheD/raw/master/docs/s6.png)
 
 ### Evaluation
 We need to be sure that our probing tool provides trustworthy results. In order to validate them, we compared the behavior of sMaSheD with official mining software. We decided to use [cgminer 3.7.2](https://github.com/ckolivas/cgminer) because it is well-established and supports all available mining protocols.

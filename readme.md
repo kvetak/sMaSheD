@@ -94,11 +94,11 @@ MARIADB_PASSWORD=<db_pass>
 
 ```
 
-6. pull containers from [Docker hub repository](https://hub.docker.com/repository/docker/nesatfit/smashed) `docker-compose pull`
+4. pull containers from [Docker hub repository](https://hub.docker.com/repository/docker/nesatfit/smashed) `docker-compose pull`
 
-7. optionally build web application locally `docker-compose build`
+5. optionally build web application locally `docker-compose build`
 
-8. run containers `docker-compose up -d`
+6. run containers `docker-compose up -d`
 
 ## User manual
 There are hundreds of coins (and tokens) available in cryptocurrency universe. In order to choose coins supported by sMaSheD, we did due diligence on "the most popular" cryptocurrencies taking into account public news, dedicated reports and consultations with our LEA partners. Bitcoin is dominating this ladder due to its importance. Regardless of the current set of cryptocurrencies, sMaSheD is designed to be a generic catalog of mining pools which should be easy to maintain and operate.

@@ -2,7 +2,9 @@
 ## Introduction
 Any organization should be aware of running mining software on its hardware in its network due to at least two reasons: a) the mining activity is often caused by malware, therefore, the mining activity is an indicator of a compromise; b) the energy (e.g., electricity, cooling, CPU and GPU power) spent on mining is paid by the hosting organization, but the recipient of the reward is a malicious actor. Universities or technological centers are typical examples of energy exploitation because they offer free computational resources (i.e., servers, network) to academics, researchers and students. Nevertheless, it is possible to start a mining operation in any organization. The malicious actor might exploit these assets resulting in an increased energy bill, depleted resources, endangered work processes, services and other users. Cryptocurrency mining is the only option how users may obtain freshly minted currency units. Moreover, mining is still the prevailing form of how to earn cryptorcurrencies with the existing equipment. 
 
-We have created a publicly available web application that stores metadata about existing mining pools. Any user may query our system to check whether a given FQDN, IP address or port number is a part of known pool configuration.
+Both mining server’s hostname and port number are publicly available (except mining malware cases) on pool’s webpage because they are necessary for successful setup of the mining process. Without this vital information, the miner would not be able to configure mining software properly. 
+
+Based on these premises, we have decided to manually collect all mining software configurations announced by the biggest mining pools for several important cryptocurrencies. We gathered all these data in a database, which is accessible through a web application called sMaSheD (Mining Server Detector of cryptocurrency pools). Any user may query our system to check whether a given FQDN, IP address or port number is a part of known pool configuration. Moreover, this system monitors availability of mining service on known pools.
 
 ### JANE Framework
 This application is one of the modules of the JANE platform, which offers various mission-specific tools intended for digital forensics of computer networks. JANE follows microservice architecture and offers few containerized modules such as:
@@ -97,6 +99,34 @@ MARIADB_PASSWORD=<db_pass>
 8. run containers `docker-compose up -d`
 
 ## User manual
+There are hundreds of coins (and tokens) available in cryptocurrency universe. In order to choose coins supported by sMaSheD, we did due diligence on "the most popular" cryptocurrencies taking into account public news, dedicated reports and consultations with our LEA partners. Bitcoin is dominating this ladder due to its importance. Regardless of the current set of cryptocurrencies, sMaSheD is designed to be a generic catalog of mining pools which should be easy to maintain and operate.
+
+Our tool operates according to the diagram outlined in figure below. Pool information are stored into sMaSheD together with available FQDNs of pool servers. Server names are resolved onto a list of IPv4/IPv6 addresses, which are then verified as mining servers by employing mining protocol probes. Each operational step is described in more detail below. 
+
+![smashed scheme](https://github.com/kvetak/sMaSheD/raw/master/docs/smashedscheme.png)
+
+We investigated mining distribution among available pools for each chosen cryptocurrency. The majority of pools add their signature into the freshly mined block. This marking allows to account the success rate of each participating pool. Moreover, pools are announcing their overall hashrate performance publicly. By combining these data, we receive quite a reliable overview about more and less important pools for every cryptocurrency. Anyone can obtain these data from dedicated web-pages, e.g. [for Bitcoins](https://www.blockchain.com/en/pools?timespan=4days), [for Litecoin](https://www.litecoinpool.org/pools), and [for Ethereum](https://etherscan.io/stat/miner?range=7&blocktype=blocks).
+
+Mining software configurations are collected by web scraping the content of pool web pages. This procedure is currently performed manually by sMaSheD administrators. However, we aim at the automation of this process in the near future. The following set of information is being collected for every pool:
+* the name of the pool and its home URL;
+* the list of pool servers identified by FQDN including ports associated with a mined cryptocurrencies;
+* every mining server FQDN is resolved onto a list of IPv4/IPv6 addresses.
+
+Nevertheless, some pools are private. The operator of such pool does not maintain any publicly available web page, which makes any web scraping of configuration impossible. Hence, sMaSheD catalog does not contain a complete list of pools for a given cryptocurrency. Fortunately, private pools constitute a fraction of overall network hashrate. Mining server FQDNs may include information about location, mined cryptocurrency (e.g., `eth-us2.dwarfpool.com`) or employed algorithm (e.g., `sha256.eu.nicehash.com`). However, a single visit of a pool’s web page does not take into account the changing nature of pool infrastructure (i.e., mining service availability on new/old servers).
+
+Pool operators provide server FQDNs, which are resolved by miners onto various IP addresses based on miner’s geolocation. Based on deployment (see figure below), DNS may resolve a single FQDN onto many IP addresses (e.g., `stratum.slushpool.com`) in order to guarantee high-availability of a mining service. sMaSheD tries to keep the list of these IP addresses as up-to-date as possible. It is a necessity especially for pools leveraging cloud deployment because cloud providers often rotate available IP addresses among customers’ virtual machines. An IP address of mining server today can belong to a completely different machine tomorrow. Because of this changing nature and since a single FQDN may actually represent a set of load-balancing mining servers, sMaSheD periodically renews the list of IP addresses associated with each mining server within the system.
+
+![Mining server deployment](https://github.com/kvetak/sMaSheD/raw/master/docs/deploy2.png)
+
+In order to provide more reliable results if a given IP address belongs to a mining server or not, we developed probing. This probing repeats for all known pools (and their mining servers). During every periodic check of mining server, sMaSheD sends crafted mining protocol message and waits for the response. If counterparty reacts properly (with a message containing work package), then it confirms that this device is really a pool’s mining server.
+
+Probing is supported for Stratum and GetBlockTemplate mining protocols. sMaSheD is probing single server for both of these protocols. GetWork is also implemented, but we were not able to test it since this protocol is deprecated and not employed by any pool within our system. There are three probing return codes:
+* DOWN - Probing failed because connection had not been even established. This occurs when a port on the server is closed, or some middle-box is blocking the connection.
+* LISTEN - The connection was accepted on a specified port, but the alleged server returns an empty response. This happens when a) server is using different mining protocol than the tested one; b) port is opened but bound to a different application.
+* UP - Probing succeeded because mining server responded with mining protocol message containing valid content. Message validity depends on employed mining protocol and consists of multiple value presence tests (e.g., error, result and other JSON fields). This validator can be easily extended to support changes or even new mining protocols. 
+
+Probing return code is usually accompanied with a verbose result (i.e., destination unreachable, unknown method, mining subscribe). sMaSheD records each probing attempt, which creates a history of service availability for a given mining server. These temporal data can later prove that IP address was used by a mining server (at least from the perspective of sMaSheD).
+
 ### Protocols
 A mining pool and its members are using dedicated protocols to coordinate distribution of mining process. There are three general mining protocols supported by a majority of
 cryptocurrencies: 
@@ -137,6 +167,37 @@ extract metadata described in the table below.
 | Miner’s email | Some pools offer email notifications about the progress of mining operation. In case of any problem such as the miner outage, too many rejected shares or disconnection from the pool, the user is warned by email. The email address may be optionally part of mining protocol message filed, which may help to reveal user’s identity. |
 
 ### User-stories
+sMaSheD is a combination of command-line script (which periodically probes mining server on a given IP address and port number) and web application that offers user control of the system.
+
+There is no need for authentication of users accessing the system for read-only access to the mining server catalog. However, for create-update-delete operations over resources, the user must be logged in. Therefore, web application supports the basic AAA system employing username-password credentials.
+
+The system consists of the following views:
+
+* *Main* - allowing a generic search (by providing FQDN or IP address) of data contained in the catalog;
+* *Dashboard* - consolidating resources statistics;
+* *Login* - landing page for unauthorized access through which the user provides session-based credentials;
+* *Pools* - management of existing pools (e.g., their names and URLs);
+* *Cryptos* - management of cryptocurrencies mined by recognized pools (e.g., their name, abbreviation and project URL);
+* *Servers* - management of pool servers (e.g., their fully-qualified domain names, IP addresses, open ports for a given cryptocurrency mining service);
+* *Ports* - management of ports assigned to particular server and cryptocurrency;
+* *Addresses* - management of all IP addresses resolved from FQDNs of servers;
+* *Mining properties* - management of all probes checking the availability of mining operation service on a given IPs (and belonging servers).
+
+### Operation
+
+
+### Evaluation
+We need to be sure that our probing tool provides trustworthy results. In order to validate them, we compared the behavior of sMaSheD with official mining software. We decided to use [cgminer 3.7.2](https://github.com/ckolivas/cgminer) because it is well-established and supports all available mining protocols.
+
+We tested both tools over the same set of mining servers and recorded communication into PCAP file. We compared connection success rate (based on textual console outputs) and messages exchanged between miner (either sMaSheD or cgminer) and mining server. We did not find any differences for detected mining servers when comparing sMaSheD and cgminer connection attempts. Both applications used the same set (1983 entries) of IP addresses and ports of alleged mining servers.
+sMaSheD system does not send any authentication credentials towards a pool upon the check, the basic response for mining subscription message is enough to mark a device as mining server positively. This is illustrated in Wireshark message captures depicted in following figures:
+
+* Message exchange between cgminer (red) and pool (blue) 
+![cgminerpcap](https://github.com/kvetak/sMaSheD/raw/master/docs/wshark-cgminer.png)
+
+* Message exchange between sMaSheD (red) and pool (blue) 
+![smashedpcap](https://github.com/kvetak/sMaSheD/raw/master/docs/wshark-smashed.png)
+
 
 
 ## Programmer's documentation
